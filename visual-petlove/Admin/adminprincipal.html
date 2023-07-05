@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicación de Mascotas</title>
+    <link rel="stylesheet" type="text/css" href="Css/Cssadmin.css">
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <div class="bg-col">
+                <button class="manage-btn" style="text-align: center;"><a href="inicio"></a><img src="img/pata-log.png" alt="" style="width: 175px;"></button>
+            </div><hr>
+            <button class="manage-btn" style="text-align: center;"><a href="inicio"></a>Inicio</button><hr><hr>
+            <button class="manage-btn" onclick="toggleMenu('submenu')" style="text-align: center;">Gestionar Datos</button><hr>
+            <ul id="submenu">
+                <li><a style="text-align: center;" href="gestionusuario.html">Usuario</a></li>
+                <li><a href="#">Producto</a></li>
+                <li><a href="#">Veterinario</a></li>
+                <li><a href="#">Rol</a></li>
+                <li><a href="#">Mascota</a></li>
+                <li><a href="#">Reserva</a></li>
+                <li><a href="#">Servicio</a></li>
+            </ul>
+            <hr><button class="manage-btn" onclick="toggleMenu('submenus')" style="text-align: center;">Configuración</button><hr>
+            <ul id="submenus">
+                <li><a href="gestionusuario.html">Mi perfil</a></li>
+                <li><a href="#">Actualiza mis Datos</a></li>
+            </ul><hr>
+            <button class="manage-btn" style="text-align: center;">Cerrar Sesión</button><hr>
+        </div>
+    </header>
+    <main>
+        
+        <div class="content">
+            <!-- Inicio de mision, vision y valores -->
+            <div class="container-principal">
+                <div class="container">
+                    <p>
+                        <img class="img-fluid w-100" src="img/m-v-v.png" alt="" ><br>
+                        <h4 class="text-secondary mb-3">¿Cuál es nuestra misión, visión y valores?</h4>
+                        <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Misión Pet</span>Love</h1>
+                        <p class="mb-4">Brindar alegría y seguridad tanto a la mascota como al dueño de la misma. Ayudar al usuario con el cuidado y aseo de la mascota.</p>
+                        <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Visión Pet</span>Love</h1>
+                        <p class="mb-4">Para el año 2030 queremos crecer y afianzar la estabilidad de nuestra veterinaria, haciéndonos reconocidos a nivel nacional adquiriendo varias sucursales. <br> Para el año 2040 queremos ser reconocidos a nivel mundial.</p>
+                        <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Valores Pet</span>Love</h1>
+                        <p class="mb-4">Seremos reconocidos por siempre tener en cuenta la honestidad, amabilidad, y la buena atención al cliente.</p>
+                    </p><br>
+                </div>
+            </div>
+            <!-- Fin de mision, vision y valores -->
+        </div>
+    </main>
+    <script>
+        function toggleMenu(id) {
+            var submenu = document.getElementById(id);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        }
+
+        function toggleMenu(id) {
+            var submenus = document.getElementById(id);
+            if (submenus.style.display === 'block') {
+                submenus.style.display = 'none';
+            } else {
+                submenus.style.display = 'block';
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>
