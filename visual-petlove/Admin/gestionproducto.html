@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicación de Mascotas</title>
+    <link rel="shortcut icon" href="img/pata.png">
+    <link rel="stylesheet" type="text/css" href="Css/Cssproducto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <div class="bg-col">
+                <button class="manage-btn" style="text-align: center;"><a href="adminprincipal.html"><img src="img/pata-log.png" alt="" style="width: 175px;"></a></button>
+            </div><hr>
+            <button class="manage-btn" style="text-align: center;"><a href="adminprincipal.html">Inicio</a></button><hr><hr>
+            <button class="manage-btn" onclick="toggleMenu('submenu')" style="text-align: center;">Gestionar Datos</button><hr>
+            <ul id="submenu">
+                <li><a href="gestionusuario.html">Usuario</a></li>
+                <li><a href="gestionproducto.html">Producto</a></li>
+                <li><a href="gestionveterinario.html">Veterinario</a></li>
+                <li><a href="gestionrol.html">Rol</a></li>
+                <li><a href="gestionmascota.html">Mascota</a></li>
+                <li><a href="gestionreserva.html">Reserva</a></li>
+                <li><a href="gestionservicio.html">Servicio</a></li>
+            </ul>
+            <hr><button class="manage-btn" onclick="toggleMenu('submenus')" style="text-align: center;">Configuración</button><hr>
+            <ul id="submenus">
+                <li><a href="gestionperfil.html">Mi perfil</a></li>
+                <li><a href="gestiondatos.html">Actualiza mis Datos</a></li>
+            </ul><hr>
+            <button class="manage-btn" style="text-align: center;">Cerrar Sesión</button><hr>
+        </div>
+        <div class="content">
+            <h1 style="text-align: center;">Gestionar Producto</h1>
+            <div class="container">
+                <a href="pagina1.html" class="box">
+                    <div class="icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="content2">
+                        <h2>Agregar</h2>
+                        <p>Producto</p>
+                    </div>
+                </a>
+                <a href="pagina2.html" class="box">
+                    <div class="icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div class="content2">
+                        <h2>Eliminar</h2>
+                        <p>Producto</p>
+                    </div>
+                </a>
+            </div>
+            <div class="container">
+                <a href="pagina3.html" class="box">
+                    <div class="icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="content2">
+                        <h2>Editar</h2>
+                        <p>Producto</p>
+                    </div>
+                </a>
+                <a href="pagina4.html" class="box">
+                    <div class="icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="content2">
+                        <h2>Buscar</h2>
+                        <p>Producto</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <script>
+        function toggleMenu(id) {
+            var submenu = document.getElementById(id);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        }
+
+        function toggleMenu(id) {
+            var submenus = document.getElementById(id);
+            if (submenus.style.display === 'block') {
+                submenus.style.display = 'none';
+            } else {
+                submenus.style.display = 'block';
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>
