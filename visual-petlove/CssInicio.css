@@ -1,12 +1,22 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     background-color: #faf3e8;
     margin: 0;
     padding: 0;
 }
 
+html{
+    font-family: sans-serif;
+}
+
 header{
-    height: 10vh;
+    height: 13vh;
     background-color: #faf3e8;
 }
 
@@ -37,6 +47,10 @@ a{
     margin-top: 16px;
 }
 
+.logo a{
+    color: #ad6a2b;
+}
+
 .navbar_list{
     display: flex;
     justify-content: space-around;
@@ -58,7 +72,7 @@ a{
 }
 
 .btn a{
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px 20px;
     color: #fff;
     background-color: #ad6a2b;
@@ -90,7 +104,7 @@ input {
 }
 
 .button {
-    width: 100%;
+    width: 105%;
     height: 45px;
     background: #ad6a2b;
     border: none;
@@ -102,7 +116,7 @@ input {
     font-weight: 500;
 }
 
-button:hover {
+.button:hover {
     background-color: #ad6a2b;
 }
 
@@ -127,7 +141,7 @@ a:hover {
 
 .input-box{
     position: relative;
-    width: 100%;
+    width: 105%;
     height: 50px;
     border-bottom: 2px solid #ad6a2b;
     margin: 30px 0;
@@ -147,7 +161,7 @@ a:hover {
 
 .input-box input:focus~label,
 .input-box input:valid~label{
-    top: -20px;
+    top: -15px;
 }
 
 .input-box input{
@@ -198,7 +212,7 @@ a:hover {
     align-items: center;
 }
 
-#pie {
+/*#pie {
     height: 60px;
     line-height:50px;
     background-color: #ad6a2b;
@@ -207,12 +221,39 @@ a:hover {
     position:absolute;
     bottom:0;
     left:0;
-    width:100%;
-}
+    width:97.5%;
+    margin-bottom: 0px;
+}*/
 
 #pie2{
     width: 50px;
     height: 50px;
-    margin-top:2px;
+    margin-top:-10px;
     display: flex;
+}
+
+.wrapper {
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #faf3e8;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ad6a2b;
+}
+
+footer {
+    height: 60px;
+    background-color: #ad6a2b;
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
