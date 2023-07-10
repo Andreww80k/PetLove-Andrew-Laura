@@ -1,0 +1,455 @@
+html {
+    font-family: sans-serif;
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0;
+    /* Agregado */
+}
+
+/* Nav */
+
+header {
+    height: 7vh;
+    background-color: #faf3e8;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.menu_right {
+    display: flex;
+}
+
+.log {
+    width: 50px;
+    height: 50px;
+    margin-top: -5px;
+}
+
+.logo {
+    color: #ad6a2b;
+    margin-left: 10px;
+    margin-top: 16px;
+}
+
+.logo a{
+    color: #ad6a2b;
+}
+
+.navbar_list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.list_item {
+    list-style: none;
+}
+
+.list_link {
+    padding: 40px;
+    color: #0d152c;
+    font-weight: 600;
+}
+
+.btn {
+    border: none;
+}
+
+.btn a {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #ad6a2b;
+    border-radius: 30px;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ad6a2b, #dc700b);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;/* Añadido */
+    overflow-y: auto;/* Añadido */
+}
+
+.menu-sidebar {
+    margin-top: 470px;
+}
+
+.manage-btn {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background-color: #9c9c9c00;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    margin-top: 0px;
+}
+
+.manage-btn a {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background-color: #ff000000;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    margin-top: 0px;
+}
+
+#submenu {
+    display: none;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+#submenu li {
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.154);
+    margin: 10px;
+    text-align: center
+}
+
+body {
+    background-color: #faf3e8;
+    margin-left: 200px;
+    /* Agregado */
+}
+
+#submenu li a {
+    text-decoration: none;
+    color: black;
+}
+
+#submenus {
+    display: none;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+#submenus li {
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.154);
+    margin: 10px;
+    text-align: center;
+}
+
+#submenus li a {
+    text-decoration: none;
+    color: black;
+}
+
+/*Mision, Vision y Valores*/
+
+.content {
+    padding: 15px;
+}
+
+p,
+.text-h1 {
+    text-align: justify;
+    padding: 0 15px 0 15px;
+}
+
+.img-left {
+    width: 720px;
+    float: left;
+}
+
+.img-left2 {
+    width: 550px;
+    float: left;
+}
+
+.img-right {
+    width: 510px;
+    float: right;
+}
+
+.container-principal {
+    height: 530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 228, 196, 0.695);
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.container {
+    width: 96.5%;
+}
+
+
+/*Inicio servicios*/
+
+.container-fluid {
+    margin-top: 5px;
+    padding: 0;
+    text-align: center;
+}
+
+.container-fluid .container {
+    max-width: 100%;
+    padding: 22.5px;
+}
+
+.container-fluid .row {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container-fluid .col-md-12 {
+    width: 96.1%;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.container-fluid .col-md-6 {
+    width: 30.6%;
+    height: 235px;
+    background-color: white;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.container-fluid a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ad6a2b;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.container-fluid a:hover {
+    background-color: #dc700b;
+}
+
+/*Porque elegirnos*/
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    margin: 13px;
+    width: 200px;
+    height: 92px;
+    margin-bottom: 30px;
+}
+
+.icon {
+    font-size: 40px;
+    color: #ad6a2b;
+    margin-bottom: 10px;
+    transition: transform 2.3s ease;
+}
+
+.icon:hover {
+    transform: scale(2.2);
+}
+
+.icon-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-eligenos {
+    display: flex;
+    justify-content: center;
+}
+
+/*Productos*/
+
+.row-prod {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.product {
+    text-align: center;
+    margin: 0 10px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product h3 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+
+.product p {
+    font-size: 16px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.product ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.product ul li {
+    margin-bottom: 5px;
+    color: #555;
+    text-align: center;
+}
+
+.product a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ad6a2b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.product a:hover {
+    background-color: #dc700b;
+}
+
+/*Sobre Nosotros*/
+
+.container-principal2 {
+    height: 530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 228, 196, 0.695);
+    border-radius: 20px;
+    margin-top: 80px;
+}
+
+.container2 ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/*Equipo*/
+
+.team-container {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+
+.team-header h4 {
+    font-size: 24px;
+    margin: 0;
+    color: #dc700b;
+}
+
+.team-header h1 {
+    font-size: 48px;
+    margin: 10px 0;
+    color: #000000;
+}
+
+.team-member {
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+}
+
+.team-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.team-member img:hover {
+    transform: scale(1.1);
+}
+
+.team-member h5 {
+    font-size: 20px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.team-member i {
+    color: #dc700b;
+    font-size: 24px;
+    margin: 5px;
+    transition: color 0.3s ease;
+}
+
+.team-member i:hover {
+    color: #ad6a2b;
+}
+
+/*Footer*/
+
+#pie2{
+    width: 50px;
+    height: 50px;
+    margin-top:-10px;
+    display: flex;
+}
+
+.wrapper {
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+footer {
+    height: 60px;
+    background-color: #ad6a2b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

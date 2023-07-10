@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicación de Mascotas</title>
+    <link rel="shortcut icon" href="img/pata.png">
+    <link rel="stylesheet" type="text/css" href="Css/Cssadmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Fuentes web de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="menu_right">
+                <div>
+                    <img class="log" src="img/pata.png" alt="">
+                </div>
+                <div class="logo"><a href="adminprincipal.html">PetLove Web</a></div>
+                <ul class="navbar_list">
+                    <li class="list_item"><a class="list_link" href="#mision">Mision</a></li>
+                    <li class="list_item"><a class="list_link" href="#servicios">Servicios</a></li>
+                    <li class="list_item"><a class="list_link" href="#elegirnos">Elegirnos</a></li>
+                    <li class="list_item"><a class="list_link" href="#productos">Productos</a></li>
+                    <li class="list_item"><a class="list_link" href="#nosotros">Nosotros</a></li>
+                    <li class="list_item"><a class="list_link" href="#equipo">Equipo</a></li>
+                </ul>
+            </div>
+            <button class="btn"><a href="../PetLoveWeb.html">Cerrar Sesión</a></button>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-sidebar">
+                <h1 style="text-align: center;">Welcome Admin</h1>
+                <hr>
+                <button class="manage-btn" style="text-align: center;"><a href="adminprincipal.html">Inicio</a></button>
+                <hr>
+                <hr>
+                <button class="manage-btn" onclick="toggleMenu('submenu')" style="text-align: center;">Gestionar
+                    Datos</button>
+                <hr>
+                <ul id="submenu">
+                    <li><a href="gestionusuario.html">Usuario</a></li>
+                    <li><a href="gestionproducto.html">Producto</a></li>
+                    <li><a href="gestionproovedor.html">Proveedor</a></li>
+                    <li><a href="gestionrol.html">Rol</a></li>
+                    <li><a href="gestionmascota.html">Mascota</a></li>
+                    <li><a href="gestionreserva.html">Reserva</a></li>
+                    <li><a href="gestionservicio.html">Servicio</a></li>
+                    <li><a href="gestiondetalleventa.html">DetalleVenta</a></li>
+                    <li><a href="gestionventacompra.html">VentaCompra</a></li>
+                </ul>
+                <hr><button class="manage-btn" onclick="toggleMenu('submenus')"
+                    style="text-align: center;">Configuración</button>
+                <hr>
+                <ul id="submenus">
+                    <li><a href="gestionperfil.html">Mi perfil</a></li>
+                    <li><a href="gestiondatos.html">Actualiza mis Datos</a></li>
+                </ul>
+                <hr>
+                <button class="manage-btn" style="text-align: center;"><a href="../PetLoveWeb.html">Cerrar Sesión</a></button>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="content">
+            <h1></h1>
+            <!-- Inicio de mision, vision y valores -->
+            <div class="container-principal" id="mision">
+                <div class="container">
+                    <p>
+                        <img class="img-left" src="img/m-v-v.png" alt=""><br>
+                    <h4 class="" style="color: #dc700b;">¿Cuál es nuestra misión, visión y valores?</h4>
+                    <h1 class=""><span class="" style="color: #974C00;">Misión Pet</span>Love</h1>
+                    <p class="">Brindar alegría y seguridad tanto a la mascota como al dueño de la misma. Ayudar al
+                        usuario con el cuidado y aseo de la mascota.</p>
+                    <h1 class=""><span class="" style="color: #974C00;">Visión Pet</span>Love</h1>
+                    <p class="">Para el año 2030 queremos crecer y afianzar la estabilidad de nuestra veterinaria,
+                        haciéndonos reconocidos a nivel nacional adquiriendo varias sucursales. <br> Para el año 2040
+                        queremos ser reconocidos a nivel mundial.</p>
+                    <h1 class=""><span class="" style="color: #974C00;">Valores Pet</span>Love</h1>
+                    <p class="">Seremos reconocidos por siempre, teniendo en cuenta la honestidad, amabilidad, y la buena
+                        atención al cliente.</p>
+                    </p><br>
+                </div>
+            </div>
+            <!-- Fin de mision, vision y valores -->
+            <!-- Comienza los servicios -->
+            <div class="container-fluid" id="servicios">
+                <div class="container">
+                    <div class="">
+                        <h4 class="" style="color: #dc700b;">Nuestros servicios</h4>
+                        <h1 class=""><span class="" style="color: #974C00;">Imperdibles y únicos</span><br> Servicios
+                            para tu amigo fiel!!</h1>
+                    </div>
+                    <div class="row pb-2">
+                        <div class="col-md-12">
+                            <h3 class="" style="color: #974C00;">Aseo y baño para tu mascota</h3>
+                            <p style="text-align: center;">Dale a tu mascota el cuidado que se merece con un aseo
+                                regular y un baño refrescante para mantenerla feliz y saludable.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                                <h3 class="flaticon-cat display-3 font-weight-normal text-secondary mb-3"></h3>
+                                <h3 class="mb-3" style="color: #974C00;">Accesorios para mascotas</h3>
+                                <p>Productos esenciales que mejoran la comodidad y seguridad de tu compañero peludo,
+                                    incluyendo juguetes, camas, correas y comederos, entre otros, para una vida plena y
+                                    feliz.</p>
+                                <a href="gestionreserva.html">Gestionar</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                                <h3 class="flaticon-dog display-3 font-weight-normal text-secondary mb-3"></h3>
+                                <h3 class="mb-3" style="color: #974C00;">Alimentacion para mascotas</h3>
+                                <p>Buena salud y felicidad. Proporciona una dieta adecuada, con alimentos balanceados y
+                                    de calidad, que satisfacen sus necesidades nutricionales y promueven su bienestar
+                                    general.</p>
+                                <a href="gestionreserva.html">Gestionar</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                                <h3 class="flaticon-vaccine display-3 font-weight-normal text-secondary mb-3"></h3>
+                                <h3 class="mb-3" style="color: #974C00;">Hermosas plaquitas caninas</h3>
+                                <p>En PetLove, nuestra tienda de perritos, encontrarás placas lindas y personalizadas.
+                                    Con diseños encantadores y texturas únicas, brinda a tu peludo una placa adorable
+                                    que refleje su estilo!</p>
+                                <a href="gestionreserva.html">Gestionar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin de los servicios -->
+            <!-- Inicio de Elegirnos -->
+            <div class="container-principal" id="elegirnos">
+                <div class="container">
+                    <p>
+                        <img class="img-right" src="img/porque-elegirnos.png" alt="">
+                        <br>
+                    <h4 class="text-h1" style="color: #dc700b;">¿Por qué elegirnos?</h4>
+                    <h1 class="text-h1"><span class="text-primary" style="color: #974C00;">Cuidado especial</span> en
+                        mascotas</h1>
+                    <p class="">Nuestro equipo de cuidadores altamente capacitados y amantes de los animales
+                        proporcionará atención personalizada y cariñosa a tu mascota durante su servicio. Nos
+                        aseguraremos de que reciba una dieta adecuada, ejercicio y cualquier atención médica necesaria
+                        según lo acordado previamente con el dueño.</p>
+                    </p>
+                    <div class="container-eligenos">
+                        <div class="icon-container">
+                            <div class="icon">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <h3 class="icon-title">Atención personalizada</h3>
+                        </div>
+                        <div class="icon-container">
+                            <div class="icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="icon-title">&nbsp;&nbsp;&nbsp;Amor y cariño</h3>
+                        </div>
+                    </div>
+                    <div class="container-eligenos">
+                        <div class="icon-container">
+                            <div class="icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="icon-title">Servicio las 24 horas</h3>
+                        </div>
+                        <div class="icon-container">
+                            <div class="icon">
+                                <i class="fas fa-medkit"></i>
+                            </div>
+                            <h3 class="icon-title">&nbsp;&nbsp;&nbsp;Cuidado médico</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin de Elegirnos-->
+            <!-- Inicio de Productos-->
+            <div class="row-prod" id="productos">
+                <div class="product">
+                    <img src="img/collar-perrito.jpg" alt="Producto 1">
+                    <h3>Collar</h3>
+                    <p>Precio: $20.000</p>
+                    <ul>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-bath" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Collar con placa
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Dale un toque único a tu mascota
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-window-restore" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Stock activo
+                        </li>
+                    </ul>
+                    <a href="gestionproducto.html">Gestionar</a>
+                </div>
+                <div class="product">
+                    <img src="img/Huesitos.jpg" alt="Producto 2">
+                    <h3>Huesos</h3>
+                    <p>Precio: $10.000</p>
+                    <ul>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-bath" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Huesos CanAmor
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Puedes encontrarlos comestibles
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-window-restore" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Stock con fecha de caducidad
+                        </li>
+                    </ul>
+                    <a href="gestionproducto.html">Gestionar</a>
+                </div>
+                <div class="product">
+                    <img src="img/correas.jpg" alt="Producto 3">
+                    <h3>Correas</h3>
+                    <p>Precio: $15.000</p>
+                    <ul>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-bath" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Correa verde
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Para dar vueltas con tu amigo canino
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-window-restore" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Stock activo
+                        </li>
+                    </ul>
+                    <a href="gestionproducto.html">Gestionar</a>
+                </div>
+            </div>
+            <!-- Fin de Productos-->
+            <!-- Inicio de nosotros-->
+            <div class="container-principal2" id="nosotros">
+                <div class="container2">
+                    <p>
+                        <img class="img-left2" src="img/spa.png" alt=""><br><br>
+                    <h4 class="" style="color: #dc700b;">Sobre nosotros</h4>
+                    <h1 class=""><span class="" style="color: #974C00;">Servicios (Spa)</span> y <span class=""
+                            style="color: #dc700b;">Productos</span></h1>
+                    <h5 class="text-muted mb-3">Bienvenido a nuestro servicio de veterinaria, donde cuidamos de tu
+                        mascota y buscamos paz en ella.</h5>
+                    <p class="mb-4">Sabemos lo importante que es para ti mantener a tu compañero peludo feliz y
+                        saludable, y es por eso que ofrecemos un ambiente seguro y cómodo para que se sienta como en
+                        casa.</p>
+                    </p>
+                    <ul>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-bath" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Correa verde
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Para dar vueltas con tu amigo canino
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-window-restore" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Stock activo
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-bath" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Correa verde
+                        </li>
+                        <li class="list-group-item p-2">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"
+                                style="color: #dc700b; margin-right: 5px; margin-left: 5px;"></i>
+                            Para dar vueltas con tu amigo canino
+                        </li><br><br>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fin de Nosotros-->
+            <!-- Comienzo del equipo -->
+            <div class="team-container" id="equipo">
+                <div class="team-header">
+                    <h4>¡Desarrolladores Petlove!</h4>
+                    <h1>Miembros <span style="color: #974C00;">Pet</span>Love</h1>
+                </div>
+                <div class="team-members">
+                    <div class="team-member">
+                        <!--<img src="img/perfil.jpg" alt="Andres Numpaque">-->
+                        <div class="team-member-info">
+                            <h5>Andres Felipe Numpaque León</h5>
+                            <i>Fundador - Backend y Frontend</i>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <!--<img src="img/perfil.jpg" alt="Laura Forero">-->
+                        <div class="team-member-info">
+                            <h5>Laura Lorena Forero Romero</h5>
+                            <i>Fundadora - Backend y Frontend</i>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Final del equipo -->
+            <!--Inicio de Footer-->
+            <footer>
+                <ul class="navbar_list" id="pie">2023 &copy; PetLoveWeb
+                    <li class="list_item"><a href="https://es-la.facebook.com/"><img id="pie2" src="img/facebook.png" alt=""></a></li>
+                    <li class="list_item"><a href="https://es-la.facebook.com/"><img id="pie2" src="img/twitter.png" alt=""></a></li>
+                    <li class="list_item"><a href="https://es-la.facebook.com/"><img id="pie2" src="img/instagram.png" alt=""></a></li>
+                </ul>
+            </footer>
+            <!--Fin de Footer-->
+        </div>
+    </main>
+    <script>
+        function toggleMenu(id) {
+            var submenu = document.getElementById(id);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        }
+
+        function toggleMenu(id) {
+            var submenus = document.getElementById(id);
+            if (submenus.style.display === 'block') {
+                submenus.style.display = 'none';
+            } else {
+                submenus.style.display = 'block';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
