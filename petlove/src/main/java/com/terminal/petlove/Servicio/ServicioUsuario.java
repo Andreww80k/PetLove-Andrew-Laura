@@ -39,7 +39,9 @@ public class ServicioUsuario {
         return repositorio.ListarDatosUsuarioInner(dato);
     }
 
-
+    public List<Object[]> buscarUusarioEmail(String email){
+        return repositorio.ListarDatosUsuarioEmail(email);
+    }
     //Metodo para agregar Foraneas
 
 

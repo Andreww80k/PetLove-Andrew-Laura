@@ -21,12 +21,12 @@
                 </div>
                 <div class="logo"><a href="adminprincipal.html">PetLove Web</a></div>
                 <ul class="navbar_list">
-                    <li class="list_item"><a class="list_link" href="#mision">Mision</a></li>
-                    <li class="list_item"><a class="list_link" href="#servicios">Servicios</a></li>
-                    <li class="list_item"><a class="list_link" href="#elegirnos">Elegirnos</a></li>
-                    <li class="list_item"><a class="list_link" href="#productos">Productos</a></li>
-                    <li class="list_item"><a class="list_link" href="#nosotros">Nosotros</a></li>
-                    <li class="list_item"><a class="list_link" href="#equipo">Equipo</a></li>
+                    <li class="list_item"><a class="list_link" href="adminprincipal.html">Mision</a></li>
+                    <li class="list_item"><a class="list_link" href="adminprincipal.html">Servicios</a></li>
+                    <li class="list_item"><a class="list_link" href="adminprincipal.html">Elegirnos</a></li>
+                    <li class="list_item"><a class="list_link" href="adminprincipal.html">Productos</a></li>
+                    <li class="list_item"><a class="list_link" href="adminprincipal.html">Nosotros</a></li>
+                    <li class="list_item"><a class="list_link" href="adminprincipal.html">Equipo</a></li>
                 </ul>
             </div>
             <button class="btn"><a href="../PetLoveWeb.html">Cerrar Sesión</a></button>
@@ -46,11 +46,13 @@
                 <ul id="submenu">
                     <li><a href="gestionusuario.html">Usuario</a></li>
                     <li><a href="gestionproducto.html">Producto</a></li>
-                    <li><a href="gestionveterinario.html">Veterinario</a></li>
+                    <li><a href="gestionproovedor.html">Proveedor</a></li>
                     <li><a href="gestionrol.html">Rol</a></li>
                     <li><a href="gestionmascota.html">Mascota</a></li>
                     <li><a href="gestionreserva.html">Reserva</a></li>
                     <li><a href="gestionservicio.html">Servicio</a></li>
+                    <li><a href="gestiondetalleventa.html">DetalleVenta</a></li>
+                    <li><a href="gestionventacompra.html">VentaCompra</a></li>
                 </ul>
                 <hr><button class="manage-btn" onclick="toggleMenu('submenus')"
                     style="text-align: center;">Configuración</button>
@@ -69,7 +71,7 @@
     <div class="content">
         <h1 style="text-align: center;">Gestionar Usuario</h1>
         <div class="container">
-            <a href="pagina1.html" class="box">
+            <a href="CrudUsuario/agregarusuario.html" class="box">
                 <div class="icon">
                     <i class="fas fa-user-plus"></i>
                 </div>
@@ -78,7 +80,7 @@
                     <p>Usuario</p>
                 </div>
             </a>
-            <a href="pagina2.html" class="box">
+            <a href="CrudUsuario/eliminarusuario.html" class="box">
                 <div class="icon">
                     <i class="fas fa-user-minus"></i>
                 </div>
@@ -89,7 +91,7 @@
             </a>
         </div>
         <div class="container">
-            <a href="pagina3.html" class="box">
+            <a href="CrudUsuario/actualizarusuario.html" class="box">
                 <div class="icon">
                     <i class="fas fa-user-edit"></i>
                 </div>
@@ -98,7 +100,7 @@
                     <p>Usuario</p>
                 </div>
             </a>
-            <a href="pagina4.html" class="box">
+            <a href="CrudUsuario/listarusuario.html" class="box">
                 <div class="icon">
                     <i class="fas fa-search"></i>
                 </div>
@@ -118,7 +120,6 @@
                 submenu.style.display = 'block';
             }
         }
-
         function toggleMenu(id) {
             var submenus = document.getElementById(id);
             if (submenus.style.display === 'block') {
@@ -127,9 +128,6 @@
                 submenus.style.display = 'block';
             }
         }
-
-
     </script>
 </body>
-
 </html>

@@ -1,22 +1,94 @@
+html {
+    font-family: sans-serif;
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    margin: 0;
+    /* Agregado */
+}
+
+/*Barra de navegacion*/
+
 .sidebar {
     width: 200px;
     height: 100%;
-    background: linear-gradient(to bottom, #dc700b, #e99754ba);
+    background: linear-gradient(to bottom, #ad6a2b, #dc700b);
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 999;/* Añadido */
+    overflow-y: auto;/* Añadido */
 }
 
-.manage-btn{
-    width: 100%;
-    padding: 10px;
-    text-align: left;
-    background-color: #9c9c9c00;
+.menu-sidebar {
+    margin-top: 470px;
+}
+
+/* Nav */
+
+header {
+    height: 7vh;
+    background-color: #faf3e8;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.menu_right {
+    display: flex;
+}
+
+.log {
+    width: 50px;
+    height: 50px;
+    margin-top: -5px;
+    margin-left: 200px;
+}
+
+.logo {
+    color: #ad6a2b;
+    margin-left: 10px;
+    margin-top: 16px;
+}
+
+.logo a{
+    color: #ad6a2b;
+}
+
+.navbar_list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.list_item {
+    list-style: none;
+}
+
+.list_link {
+    padding: 40px;
+    color: #0d152c;
+    font-weight: 600;
+}
+
+.btn {
     border: none;
-    outline: none;
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    margin-top: 0px;
+}
+
+.btn a {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #ad6a2b;
+    border-radius: 30px;
 }
 
 .manage-btn a{
@@ -27,6 +99,18 @@
     border: none;
     outline: none;
     text-decoration: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    margin-top: 0px;
+}
+
+.manage-btn{
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background-color: #9c9c9c00;
+    border: none;
+    outline: none;
     cursor: pointer;
     color: rgb(255, 255, 255);
     margin-top: 0px;
@@ -84,7 +168,7 @@ body{
 .content {
     margin-left: 200px;
     padding: 15px;
-    height: 1000px;
+    margin-top:15px;
 }
 
 

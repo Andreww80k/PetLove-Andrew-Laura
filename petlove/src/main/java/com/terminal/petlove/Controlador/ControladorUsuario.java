@@ -87,6 +87,33 @@ public class ControladorUsuario {
     }
 
 
+    @GetMapping("/BuscarUsuarioEmail/{email}")
+    public List<Map<String, Object>> datosUsuarioEmail(@PathVariable("email") String email) {
+        List<Object[]> lista = servicio.buscarUusarioEmail(email);
+        List<Map<String, Object>> json = new ArrayList<>();
+
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            datos.put("id_usuario", objects[0]);
+            datos.put("apellido_usuario", objects[1]);
+            datos.put("contrasena_usuario", objects[2]);
+            datos.put("correo_usuario", objects[3]);
+            datos.put("direccion_usuario", objects[4]);
+            datos.put("nombre_usuario", objects[5]);
+            datos.put("telefono_usuario", objects[6]);
+
+            json.add(datos);
+        }
+
+        for (Map<String, Object> usuario : json) {
+            System.out.println(usuario);
+        }
+
+        return json;
+    }
+
+
     //Para agregar Foranea
     @PostMapping("/AgregarUsuario/{id_rol_usuario}")
     public String AgregarUsuario(@RequestBody Usuario usuario, @PathVariable("id_rol_usuario") Integer id_rol_usuario) {
@@ -95,7 +122,7 @@ public class ControladorUsuario {
 
     //Actualizar:
     @PutMapping("/actualizarUsuario/{id_usuario}")
-    public String actualizarMascota(@PathVariable("id_usuario") Integer id_usuario, @RequestBody Usuario usuarioActualizado) {
+    public String actualizarUsuario(@PathVariable("id_usuario") Integer id_usuario, @RequestBody Usuario usuarioActualizado) {
         return servicio.AgregarUsuario(id_usuario, usuarioActualizado);
     }
 
