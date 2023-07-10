@@ -113,6 +113,33 @@ public class ControladorUsuario {
         return json;
     }
 
+    @GetMapping("/BuscarUsuarioNombre/{nombre_usuario}")
+    public List<Map<String, Object>> buscarUsuarioNombre(@PathVariable("nombre_usuario") String nombre_usuario) {
+        List<Object[]> lista = servicio.buscarUsuarioNombre(nombre_usuario);
+        List<Map<String, Object>> json = new ArrayList<>();
+
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            datos.put("id_usuario", objects[0]);
+            datos.put("apellido_usuario", objects[1]);
+            datos.put("contrasena_usuario", objects[2]);
+            datos.put("correo_usuario", objects[3]);
+            datos.put("direccion_usuario", objects[4]);
+            datos.put("nombre_usuario", objects[5]);
+            datos.put("telefono_usuario", objects[6]);
+
+            json.add(datos);
+        }
+
+        for (Map<String, Object> usuario : json) {
+            System.out.println(usuario);
+        }
+
+        return json;
+    }
+
+
 
     //Para agregar Foranea
     @PostMapping("/AgregarUsuario/{id_rol_usuario}")
@@ -131,4 +158,8 @@ public class ControladorUsuario {
     public String eliminarUsuario(@PathVariable("id_usuario")Integer id_usuario){
         return servicio.EliminarUsuario(id_usuario);
     }
+
+    //Eliminar por nombre:
+
+
 }

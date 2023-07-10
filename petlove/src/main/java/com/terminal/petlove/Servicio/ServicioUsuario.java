@@ -42,6 +42,10 @@ public class ServicioUsuario {
     public List<Object[]> buscarUusarioEmail(String email){
         return repositorio.ListarDatosUsuarioEmail(email);
     }
+
+    public List<Object[]> buscarUsuarioNombre(String nombre_usuario){
+        return repositorio.ListarDatosUsuarioNombre(nombre_usuario);
+    }
     //Metodo para agregar Foraneas
 
 
@@ -101,6 +105,21 @@ public class ServicioUsuario {
            return "No se registra ningun usuario para eliminar";
        }
     }
+
+    //En Progreso de eliminar por correo
+    // Eliminar Usuario por Correo:
+   // public String eliminarUsuarioPorCorreo(String correo_usuario) {
+     //   Optional<Usuario> usuarioOptional = repositorio.findByCorreo(correo_usuario);
+       // if (usuarioOptional.isPresent()) {
+         //   repositorio.delete(usuarioOptional.get());
+           // return "Se ha eliminado el usuario por completo";
+        //} else {
+          //  return "No se registra ningún usuario con ese correo para eliminar";
+       // }
+   // }
+
+
+
 }
 
 
