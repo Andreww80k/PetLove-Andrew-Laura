@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicación de Mascotas</title>
+    <link rel="shortcut icon" href="img/pata.png">
+    <link rel="stylesheet" type="text/css" href="Css/Cssreserva.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Fuentes web de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="menu_right">
+                <div>
+                    <img class="log" src="img/pata.png" alt="">
+                </div>
+                <div class="logo"><a href="veterinarioprincipal.html">PetLove Web</a></div>
+                <ul class="navbar_list">
+                    <li class="list_item"><a class="list_link" href="veterinarioprincipal.html">Servicios</a></li>
+                    <li class="list_item"><a class="list_link" href="veterinarioprincipal.html">Mision</a></li>
+                    <li class="list_item"><a class="list_link" href="veterinarioprincipal.html">Elegirnos</a></li>
+                    <li class="list_item"><a class="list_link" href="veterinarioprincipal.html">Productos</a></li>
+                    <li class="list_item"><a class="list_link" href="veterinarioprincipal.html">Nosotros</a></li>
+                    <li class="list_item"><a class="list_link" href="veterinarioprincipal.html">Equipo</a></li>
+                </ul>
+            </div>
+            <button class="btn"><a href="../PetLoveWeb.html">Cerrar Sesión</a></button>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-sidebar">
+                <h1 style="text-align: center;">Welcome Vet</h1>
+                <hr>
+                <button class="manage-btn" style="text-align: center;"><a href="veterinarioprincipal.html">Inicio</a></button>
+                <hr>
+                <hr>
+                <button class="manage-btn" onclick="toggleMenu('submenu')" style="text-align: center;">Gestionar
+                    Datos</button>
+                <hr>
+                <ul id="submenu">
+                    <li><a href="gestionusuario.html">Usuario</a></li>
+                    <li><a href="gestionproducto.html">Producto</a></li>
+                    <li><a href="gestionproovedor.html">Proveedor</a></li>
+                    <li><a href="gestionrol.html">Rol</a></li>
+                    <li><a href="gestionmascota.html">Mascota</a></li>
+                    <li><a href="gestionreserva.html">Reserva</a></li>
+                    <li><a href="gestionservicio.html">Servicio</a></li>
+                    <li><a href="gestiondetalleventa.html">DetalleVenta</a></li>
+                    <li><a href="gestionventacompra.html">VentaCompra</a></li>
+                </ul>
+                <hr><button class="manage-btn" onclick="toggleMenu('submenus')"
+                    style="text-align: center;">Configuración</button>
+                <hr>
+                <ul id="submenus">
+                    <li><a href="gestionperfil.html">Mi perfil</a></li>
+                    <li><a href="gestiondatos.html">Actualiza mis Datos</a></li>
+                </ul>
+                <hr>
+                <button class="manage-btn" style="text-align: center;"><a href="../PetLoveWeb.html">Cerrar
+                        Sesión</a></button>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <h1 style="text-align: center;">Gestionar Reserva</h1>
+        <div class="container">
+            <a href="CrudReserva/agregarreserva.html" class="box">
+                <div class="icon">
+                    <i class="fas fa-calendar-plus"></i>
+                </div>
+                <div class="content2">
+                    <h2>Agregar</h2>
+                    <p>Reserva</p>
+                </div>
+            </a>
+            <a href="CrudReserva/eliminarreserva.html" class="box">
+                <div class="icon">
+                    <i class="fas fa-calendar-times"></i>
+                </div>
+                <div class="content2">
+                    <h2>Eliminar</h2>
+                    <p>Reserva</p>
+                </div>
+            </a>
+        </div>
+        <div class="container">
+            <a href="CrudReserva/actualizarreserva.html" class="box">
+                <div class="icon">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <div class="content2">
+                    <h2>Editar</h2>
+                    <p>Reserva</p>
+                </div>
+            </a>
+            <a href="CrudReserva/listarreserva.html" class="box">
+                <div class="icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="content2">
+                    <h2>Buscar</h2>
+                    <p>Reserva</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script>
+        function toggleMenu(id) {
+            var submenu = document.getElementById(id);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        }
+
+        function toggleMenu(id) {
+            var submenus = document.getElementById(id);
+            if (submenus.style.display === 'block') {
+                submenus.style.display = 'none';
+            } else {
+                submenus.style.display = 'block';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
