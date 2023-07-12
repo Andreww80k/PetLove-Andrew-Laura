@@ -18,33 +18,43 @@ function selectRol(){
 $(document).ready(function() {
     selectRol();
     const GuardaUsuario = $("#GuardaUsuario");
-    const nombre = $('#nombre');
-    const apellido = $('#apellido');
-    const direccion = $('#direccion');
-    const telefono = $('#telefono');
-    const correo = $('#correo');
-    const contrasena = $('#contrasena');
-    const rolselect = $("#rolselect");
+    const rolselect = $("#rol");
 
     GuardaUsuario.click(function(event) {
         event.preventDefault(); // Evita el comportamiento predeterminado del enlace
 
-        const nombreseleccionado = nombre.val();
-        const apellidoseleccionado = apellido.val();
-        const direccionseleccionado = direccion.val();
-        const telefonoseleccionado = telefono.val();
-        const correoseleccionado = correo.val();
-        const contrasenaseleccionado = contrasena.val();
+        const nombreseleccionado = $('#nombre').val();
+        const apellidoseleccionado = $('#apellido').val();
+        const direccionseleccionado = $('#direccion').val();
+        const telefonoseleccionado = $('#telefono').val();
+        const correoseleccionado = $('#correo').val();
+        const contrasenaseleccionado = $('#contrasena').val();
         const rolseleccionado = rolselect.val();
 
+        const usuario = {
+            nombre_usuario: nombreseleccionado,
+            apellido_usuario: apellidoseleccionado,
+            direccion_usuario: direccionseleccionado,
+            telefono_usuario: telefonoseleccionado,
+            correo_usuario: correoseleccionado,
+            contrasena_usuario: contrasenaseleccionado,
+        };
+
+        let envioDatos = JSON.stringify(usuario)
+
         $.ajax({
-            url: "http://localhost:8080/AgregarUsuario/" + rolseleccionado,
+            url: "http://localhost:8080/AgregarUsuario/" + rolseleccionado, 
             type: "POST",
-            dataType: "JSON",
+            data: envioDatos,
+            contentType: "application/JSON",
+            async: false,
+            datatype: JSON,
             success: function(response) {
-                console.log(response)
-                console.log("Agregado")
-            },
+                console.log(response);
+                console.log("Agregado");
+                alert("Agregado");
+                window.location.href = 'IniciodeSesion.html';
+            }
         });
     });
 });
