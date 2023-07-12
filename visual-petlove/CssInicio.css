@@ -103,7 +103,7 @@ input {
     border-radius: 4px;
 }
 
-.button {
+#button {
     width: 105%;
     height: 45px;
     background: #ad6a2b;
@@ -116,7 +116,7 @@ input {
     font-weight: 500;
 }
 
-.button:hover {
+#button:hover {
     background-color: #ad6a2b;
 }
 
