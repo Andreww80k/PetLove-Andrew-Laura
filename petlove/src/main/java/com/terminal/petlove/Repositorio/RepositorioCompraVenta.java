@@ -20,4 +20,7 @@ public interface RepositorioCompraVenta extends JpaRepository<VentaCompra, Integ
     List<Object[]>ListarDatosCompraVentaInner(Integer dato);
 
 
+    @Query(value = "SELECT vc.id_venta, vc.estado_venta, vc.fecha_venta, vc.impuesto, vc.total FROM venta_compra AS vc WHERE vc.estado_venta=?1",nativeQuery = true)
+    List<Object[]>ListarCompraVentaEstado(String estado_venta);
+
 }

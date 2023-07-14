@@ -87,6 +87,35 @@ public class ControladorCompraVenta {
         return json;
     }
 
+
+    //Buscar por elestado de compra
+
+
+        @GetMapping("/BuscarEstadoVenta/{estado_venta}")
+    public List<Map<String,Object>>datosEstadoVenta(@PathVariable("estado_venta")String estado_venta){
+        List<Object[]>lista=servicio.BuscarDetalleVentaEstado(estado_venta);
+
+        List<Map<String,Object>>json=new ArrayList<>();
+
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            //Segun el orden la consulta se ingresa
+            datos.put("id_venta", objects[0]);
+            datos.put("estado_venta", objects[1]);
+            datos.put("fecha_venta", objects[2]);
+            datos.put("impuesto", objects[3]);
+            datos.put("total", objects[4]);
+            json.add(datos);
+        }
+        for (Map<String, Object> Venta : json) {
+            System.out.println(Venta);
+        }
+
+        return json;
+    }
+
+
     //Agregar:
 
     @PostMapping("/AgregarCompraVenta/{id_usuario}")

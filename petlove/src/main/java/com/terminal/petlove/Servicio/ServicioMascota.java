@@ -35,6 +35,14 @@ public class ServicioMascota {
         return repositorio.ListarDatosMascotasInner(dato);
     }
 
+//Para buscar por nombre:
+
+    public List<Object[]>buscarMascotaNombre(String nombre_mascota){
+            return repositorio.ListarMascotasNombre(nombre_mascota);
+    }
+
+
+
 
     //Metodo para agregar Foraneas
 

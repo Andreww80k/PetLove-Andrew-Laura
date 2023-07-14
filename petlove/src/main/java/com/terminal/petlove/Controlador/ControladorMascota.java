@@ -95,6 +95,34 @@ public class ControladorMascota {
         return json;
     }
 
+    //Buscar mascota por inner join
+
+    @GetMapping("/BuscarNombreMascota/{nombre_mascota}")
+    public List<Map<String,Object>>datosMascotaName(@PathVariable("nombre_mascota")String nombre_mascota){
+        List<Object[]>lista=servicio.buscarMascotaNombre(nombre_mascota);
+        List<Map<String,Object>> json=new ArrayList<>();
+
+        for (Object[]objects:lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
+
+            //Segun el orden de la consulta nuevamente:
+
+            datos.put("id_mascota", objects[0]);
+            datos.put("edad_mascota",objects[1]);
+            datos.put("nombre_mascota",objects[2]);
+            datos.put("peso_mascota",objects[3]);
+            datos.put("raza_mascota",objects[4]);
+            datos.put("tipo_mascota",objects[5]);
+
+            json.add(datos);
+        }
+
+        for (Map<String,Object>Mas:json){
+            System.out.println(Mas);
+        }
+        return json;
+    }
+
     //Para agregar foranea:
 
     @PostMapping("/AgregarMascota/{id_usuario}")
@@ -117,5 +145,6 @@ public class ControladorMascota {
 
 
 }
+
 
 

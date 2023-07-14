@@ -159,7 +159,8 @@ public class ControladorUsuario {
         return servicio.EliminarUsuario(id_usuario);
     }
 
-    //Eliminar por nombre:
+    //Eliminar por Correo :
+
 
 
 }

@@ -4,7 +4,9 @@ import com.terminal.petlove.Entidad.Producto;
 import com.terminal.petlove.Repositorio.RepositorioProducto;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ServicioProducto {
@@ -18,11 +20,23 @@ public class ServicioProducto {
         return (ArrayList<Producto>) repositorio.findAll();
     }
 
+    public List<Object[]>DatosProductos(){
+        return repositorio.ListarDatosProducto();
+    }
+
+
+    //Servicio para buscar por nombre
+    public List<Object[]>ListarProductoNombres(String nombre_producto){
+        return repositorio.ListarProductoNombres(nombre_producto);
+    }
+
+
     public Producto buscarProducto(Integer doc) {
         if(repositorio.findById(doc).isPresent())
             return repositorio.findById(doc).get();
         else return null;
     }
+
 
     public String agregarProducto(Producto Producto){
         if(repositorio.findById(Producto.getId_producto()).isPresent())
@@ -39,11 +53,16 @@ public class ServicioProducto {
         else {return "El Producto no se puede actualizar porque no existe";}
     }
 
-    public String eliminarProducto(Integer id){
-        if(repositorio.findById(id).isPresent()){
-            repositorio.deleteById(id);
-            return "Producto eliminado exitosamente";
-        }
-        else return "Producto no registrado";
+    @Transactional
+    public String EliminarCorreo(String nombre_producto){
+        repositorio.eliminarProductoPorNombre(nombre_producto);
+        repositorio.deleteById(Integer.valueOf(nombre_producto));
+        return "El producto ha sido eliminado";
+
+
     }
+
+
+
+
 }

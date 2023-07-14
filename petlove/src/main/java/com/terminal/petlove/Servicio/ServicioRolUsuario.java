@@ -5,6 +5,7 @@ import com.terminal.petlove.Repositorio.RepositorioRolUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -22,6 +23,21 @@ public class ServicioRolUsuario {
     public ArrayList<RolUsuario> listarRol_Usuario(){
         return (ArrayList<RolUsuario>) repoRUsu.findAll();
     }
+
+    //s
+    public List<Object[]>DatosRol(){
+        return repoRUsu.ListarDatosRol();
+    }
+
+    //Servicio de buscar por nombre de rol
+
+    public List<Object[]>DatosRolNombre(String nombre_rol_usuario){
+        return repoRUsu.ListarDatosRolNombre(nombre_rol_usuario);
+    }
+
+
+
+
 
 
     //Metodo de buscar Rol_Usuario por Jpa

@@ -1,10 +1,15 @@
 package com.terminal.petlove.Controlador;
-
 import com.terminal.petlove.Entidad.Producto;
+import com.terminal.petlove.Entidad.RolUsuario;
 import com.terminal.petlove.Servicio.ServicioProducto;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ControladorProducto {
@@ -27,13 +32,65 @@ public class ControladorProducto {
     }
 
 
+    @GetMapping("/ListarProductos")
+    public List<Map<String,Object>>datosProductos(){
+        List<Object[]>lista=servicio.DatosProductos();
+        List<Map<String,Object>>json=new ArrayList<>();
+
+
+        for (Object[] objects: lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
+
+
+            //Segun el orden de la consulta se ingresa
+            datos.put("id_producto, ",objects[0]);
+            datos.put("descripcion_producto", objects[1]);
+            datos.put("nombre_producto",objects[2]);
+            datos.put("precio_producto",objects[3]);
+            datos.put("stock_producto",objects[4]);
+            json.add(datos);
+        }
+        for (Map<String,Object> Pro:json){
+            System.out.println(Pro);
+        }
+        return json;
+    }
+
+
+
+
+    //Buscar por nombre el producto
+
+    @GetMapping("/BuscarNombreProducto/{nombre_producto}")
+    public List<Map<String,Object>>datosProductoName(@PathVariable("nombre_producto")String nombre_producto){
+        List<Object[]>lista=servicio.ListarProductoNombres(nombre_producto);
+        List<Map<String,Object>> json=new ArrayList<>();
+
+        for (Object[]objects:lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
+
+            //Segun el orden de la consulta nuevamente:
+
+            datos.put("id_producto, ",objects[0]);
+            datos.put("descripcion_producto", objects[1]);
+            datos.put("nombre_producto",objects[2]);
+            datos.put("precio_producto",objects[3]);
+            datos.put("stock_producto",objects[4]);
+
+            json.add(datos);
+        }
+
+        for (Map<String,Object>Pro:json){
+            System.out.println(Pro);
+        }
+        return json;
+    }
+
+
     //Crear el metodo de conntrolador para buscar Usuario
 
-    @GetMapping("/buscarProducto/{id}")
-    public Producto buscarProducto(@PathVariable("id") Integer id) {
-        return servicio.buscarProducto(id);
 
-    }
+
 
 
     //Crear metodo de agregar
@@ -52,8 +109,12 @@ public class ControladorProducto {
     }
 
     //Metodo para Eliminar
-    @DeleteMapping("/eliminarProducto/{id}")
-    public String eliminarProducto(@PathVariable("id")Integer id){
-        return  servicio.eliminarProducto(id);
+    @DeleteMapping("/eliminarProducto/{nombre_producto}")
+    public String eliminarProducto(@PathVariable("nombre_producto")String nombre_producto){
+        return  servicio.EliminarCorreo(nombre_producto);
     }
+
+
+
+
 }

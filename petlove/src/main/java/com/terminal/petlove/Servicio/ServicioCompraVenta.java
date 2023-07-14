@@ -36,6 +36,11 @@ public class ServicioCompraVenta {
     }
 
 
+    public List<Object[]>BuscarDetalleVentaEstado(String estado_venta){
+        return repositorio.ListarCompraVentaEstado(estado_venta);
+    }
+
+
     //Agregar:
 
 

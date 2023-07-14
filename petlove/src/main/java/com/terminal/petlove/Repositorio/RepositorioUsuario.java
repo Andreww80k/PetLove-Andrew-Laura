@@ -34,6 +34,10 @@ public interface RepositorioUsuario extends JpaRepository<Usuario, Integer> {
     @Query(value = "SELECT u.id_usuario, u.apellido_usuario, u.contrasena_usuario, u.correo_usuario, u.direccion_usuario, u.nombre_usuario, u.telefono_usuario FROM usuario AS u WHERE u.nombre_usuario = ?1", nativeQuery = true)
     List<Object[]> ListarDatosUsuarioNombre(String nombre_usuario);
 
+
+    //Sirve para eliminar el usuario mediante el correo
+    //Optional<Usuario> findByCorreo(String correo_usuario);
+
     //Encuentra el correo y lo elimina(en progreso)
 
     //@Query("SELECT u FROM Usuario u WHERE u.correo = :correo")

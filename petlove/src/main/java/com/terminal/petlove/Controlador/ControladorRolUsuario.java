@@ -6,6 +6,9 @@ import com.terminal.petlove.Servicio.ServicioRolUsuario;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
@@ -21,6 +24,54 @@ public class ControladorRolUsuario {
     public ArrayList<RolUsuario> listarRolUsuario() {
         return servicio.listarRol_Usuario();
     }
+
+
+    //Listar usuario por consulta
+
+    @GetMapping("/ListarRolesUsuarios")
+    public List<Map<String,Object>>datosRol(){
+        List<Object[]>lista=servicio.DatosRol();
+        List<Map<String,Object>>json=new ArrayList<>();
+
+        for (Object[] objects: lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
+
+
+            //Segun el orden de la consulta se ingresa
+            datos.put("id_rol_usuario, ",objects[0]);
+            datos.put("nombre_rol_usuario", objects[1]);
+            json.add(datos);
+        }
+        for (Map<String,Object> Rol:json){
+            System.out.println(Rol);
+        }
+        return json;
+    }
+
+
+    @GetMapping("/BuscarNombreRol/{nombre_rol_usuario}")
+    public List<Map<String,Object>>datosRolName(@PathVariable("nombre_rol_usuario")String nombre_rol_usuario){
+        List<Object[]>lista=servicio.DatosRolNombre(nombre_rol_usuario);
+        List<Map<String,Object>> json=new ArrayList<>();
+
+        for (Object[]objects:lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
+
+            //Segun el orden de la consulta nuevamente:
+
+            datos.put("id_rol_usuario, ",objects[0]);
+            datos.put("nombre_rol_usuario", objects[1]);
+            json.add(datos);
+
+        }
+
+        for (Map<String,Object>Rol:json){
+            System.out.println(Rol);
+        }
+        return json;
+    }
+
+
 
 
     //Crear el metodo de conntrolador para buscar Rol

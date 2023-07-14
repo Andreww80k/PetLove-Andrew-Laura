@@ -104,20 +104,21 @@ public class ServicioUsuario {
        } else {
            return "No se registra ningun usuario para eliminar";
        }
-    }
+    }//
 
     //En Progreso de eliminar por correo
-    // Eliminar Usuario por Correo:
-   // public String eliminarUsuarioPorCorreo(String correo_usuario) {
-     //   Optional<Usuario> usuarioOptional = repositorio.findByCorreo(correo_usuario);
-       // if (usuarioOptional.isPresent()) {
-         //   repositorio.delete(usuarioOptional.get());
-           // return "Se ha eliminado el usuario por completo";
-        //} else {
-          //  return "No se registra ningún usuario con ese correo para eliminar";
-       // }
-   // }
 
+
+    // Eliminar Usuario por Correo:
+  // public String eliminarUsuarioPorCorreo(String correo_usuario) {
+  //     Optional<Usuario> usuarioOptional = repositorio.findByCorreo(correo_usuario);
+  //     if (usuarioOptional.isPresent()) {
+  //         repositorio.delete(usuarioOptional.get());
+  //         return "Se ha eliminado el usuario por completo";
+  //     } else {
+  //         return "No se registra ningún usuario con ese correo para eliminar";
+  //     }
+  // }
 
 
 }
