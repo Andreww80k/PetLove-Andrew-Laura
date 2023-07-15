@@ -15,7 +15,7 @@ public class Servicio {
     private Integer id_servicio;
 
     @Column(nullable = false, length = 30)
-    private String tipo_servicio;
+    public String tipo_servicio;
 
     @OneToMany(mappedBy = "servicio", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
     @JsonIgnore

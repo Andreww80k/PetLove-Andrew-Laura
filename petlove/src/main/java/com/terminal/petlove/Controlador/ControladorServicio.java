@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
+@CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
 public class ControladorServicio {
 
@@ -19,13 +20,13 @@ public class ControladorServicio {
 
     //Crear la ruta y retorna a un arraylist
 
-    @GetMapping("/listarServicio")
-    public ArrayList<Servicio> listarMasc() {
+    @GetMapping("/ListarServicio")
+    public ArrayList<Servicio> listarServicio() {
         return servicio.listarServicio();
     }
 
 
-    //Crear el metodo de conntrolador para buscar Servicio
+    //Crear el metodo de controlador para buscar Servicio
 
     @GetMapping("/buscarServicio/{id}")
     public Servicio buscarServicio(@PathVariable("id") Integer id) {
@@ -46,13 +47,17 @@ public class ControladorServicio {
     @PutMapping("/actualizarServicio")
     public String actualizarServicio(@RequestBody Servicio Servicio){
         return servicio.actualizarServicio(Servicio);
-
     }
 
     //Metodo para Eliminar
     @DeleteMapping("/eliminarServicio/{id}")
     public String eliminarServicio(@PathVariable("id")Integer id){
         return  servicio.eliminarServicio(id);
+    }
+
+    @DeleteMapping("/eliminarServicioTipo/{tipo_servicio}")
+    public String eliminarServicioPorTipo(@PathVariable("tipo_servicio") String tipoServicio) {
+        return servicio.eliminarServicioPorTipo(tipoServicio);
     }
 
 }

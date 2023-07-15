@@ -1,11 +1,13 @@
 package com.terminal.petlove.Servicio;
 
+import com.terminal.petlove.Entidad.Mascota;
 import com.terminal.petlove.Entidad.RolUsuario;
 import com.terminal.petlove.Repositorio.RepositorioRolUsuario;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -93,6 +95,17 @@ public class ServicioRolUsuario {
         }
         else {
             return "Ahora el Rol_Usuario no se encuentra registrado";
+        }
+    }
+
+    public String eliminarRolUsuarioPorNombre(String nombre_rol_usuario) {
+        Optional<RolUsuario> rolUsuarioOptional = repoRUsu.buscarPorNombreRolUsuario(nombre_rol_usuario);
+
+        if (rolUsuarioOptional.isPresent()) {
+            repoRUsu.eliminarPorNombreRolUsuario(nombre_rol_usuario);
+            return "Se ha eliminado el rol por su nombre";
+        } else {
+            return "No se ha encontrado el rol con ese nombre";
         }
     }
 }

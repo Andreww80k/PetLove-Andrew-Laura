@@ -144,7 +144,15 @@ public class ControladorMascota {
         return servicio.EliminarMascota(id_mascota);
     }
 
+    @DeleteMapping("/eliminarMascotaNombre/{nombre_mascota}")
+    public String eliminarMascotaPorNombre(@PathVariable("nombre_mascota") String nombreMascota) {
+        return servicio.eliminarMascotaPorNombre(nombreMascota);
+    }
 
+    @DeleteMapping("/eliminarMascotaTipo/{tipo_mascota}")
+    public String eliminarMascotaPorTipo(@PathVariable("tipo_mascota") String TipoMascota) {
+        return servicio.eliminarMascotaPorTipo(TipoMascota);
+    }
 }
 
 

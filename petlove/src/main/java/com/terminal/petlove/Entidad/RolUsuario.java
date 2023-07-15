@@ -12,7 +12,7 @@ public class RolUsuario {
     private Integer id_rol_usuario;
 
     @Column(unique = true, length = 30)
-    private String nombre_rol_usuario;
+    public String nombre_rol_usuario;
 
     @OneToMany(mappedBy = "rol_usuario", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
     @JsonIgnore

@@ -2,6 +2,7 @@ package com.terminal.petlove.Servicio;
 
 
 import com.terminal.petlove.Entidad.Mascota;
+import com.terminal.petlove.Entidad.Producto;
 import com.terminal.petlove.Entidad.Reserva;
 import com.terminal.petlove.Entidad.Usuario;
 import com.terminal.petlove.Repositorio.RepositorioMascota;
@@ -95,6 +96,17 @@ public class ServicioReserva {
             return "Se ha eliminado la reserva por completo";
         } else {
             return "No se registra ninguna reserva para eliminar";
+        }
+    }
+
+    public String eliminarReservaPorEstado(String estado_reserva) {
+        Optional<Reserva> reservaOptional = repositorio.buscarPorEstadoReserva(estado_reserva);
+
+        if (reservaOptional.isPresent()) {
+            repositorio.eliminarPorEstadoReserva(estado_reserva);
+            return "Se ha eliminado la reserva por su estado";
+        } else {
+            return "No se ha encontrado la reserva con ese estado";
         }
     }
 

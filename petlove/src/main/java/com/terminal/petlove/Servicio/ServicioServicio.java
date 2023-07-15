@@ -1,11 +1,13 @@
 package com.terminal.petlove.Servicio;
 
 
+import com.terminal.petlove.Entidad.Producto;
 import com.terminal.petlove.Entidad.Servicio;
 import com.terminal.petlove.Repositorio.RepositorioServicio;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class ServicioServicio {
@@ -75,6 +77,17 @@ public class ServicioServicio {
         }
         else {
             return "Ahora el Servicio no se encuentra registrado";
+        }
+    }
+
+    public String eliminarServicioPorTipo(String tipo_servicio) {
+        Optional<Servicio> servicioOptional = repositorio.buscarPorTipoServicio(tipo_servicio);
+
+        if (servicioOptional.isPresent()) {
+            repositorio.eliminarPorTipoServicio(tipo_servicio);
+            return "Se ha eliminado el servicio por su tipo";
+        } else {
+            return "No se ha encontrado el servicio con ese tipo";
         }
     }
 }

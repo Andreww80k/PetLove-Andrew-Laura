@@ -14,7 +14,7 @@ public class Producto {
     private Integer id_producto;
 
     @Column(nullable = false, length = 30)
-    private String nombre_producto;
+    public String nombre_producto;
 
     @Column(nullable = false, length = 50)
     private String descripcion_producto;

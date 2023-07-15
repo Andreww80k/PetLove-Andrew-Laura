@@ -74,7 +74,7 @@ public class ControladorRolUsuario {
 
 
 
-    //Crear el metodo de conntrolador para buscar Rol
+    //Crear el metodo de controlador para buscar Rol
 
     @GetMapping("/buscarRolUsuario/{id}")
     public RolUsuario buscarRolUsuario(@PathVariable("id") Integer id) {
@@ -104,4 +104,8 @@ public class ControladorRolUsuario {
         return  servicio.eliminarRol_Usuario(id);
     }
 
+    @DeleteMapping("/eliminarRolUsuarioNombre/{nombre_rol_usuario}")
+    public String eliminarRolUsuarioPorNombre(@PathVariable("nombre_rol_usuario") String nombreRolUsuario) {
+        return servicio.eliminarRolUsuarioPorNombre(nombreRolUsuario);
+    }
 }

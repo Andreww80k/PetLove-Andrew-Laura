@@ -16,7 +16,7 @@ public class Mascota {
     private Integer id_mascota;
 
     @Column(nullable = false, length = 50)
-    private String nombre_mascota;
+    public String nombre_mascota;
 
     @Column(nullable = false, length = 50)
     private String raza_mascota;

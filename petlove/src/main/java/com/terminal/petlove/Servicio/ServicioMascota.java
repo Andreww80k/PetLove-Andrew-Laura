@@ -2,6 +2,7 @@ package com.terminal.petlove.Servicio;
 
 
 import com.terminal.petlove.Entidad.Mascota;
+import com.terminal.petlove.Entidad.Proveedor;
 import com.terminal.petlove.Entidad.Usuario;
 import com.terminal.petlove.Repositorio.RepositorioMascota;
 import com.terminal.petlove.Repositorio.RepositorioUsuario;
@@ -103,5 +104,26 @@ public class ServicioMascota {
         }
     }
 
+    public String eliminarMascotaPorNombre(String nombre_mascota) {
+        Optional<Mascota> mascotaOptional = repositorio.buscarPorNombreMascota(nombre_mascota);
+
+        if (mascotaOptional.isPresent()) {
+            repositorio.eliminarPorNombreMascota(nombre_mascota);
+            return "Se ha eliminado la mascota por su nombre";
+        } else {
+            return "No se ha encontrado la mascota con ese nombre";
+        }
+    }
+
+    public String eliminarMascotaPorTipo(String tipo_mascota) {
+        Optional<Mascota> mascotaOptional = repositorio.buscarPorTipoMascota(tipo_mascota);
+
+        if (mascotaOptional.isPresent()) {
+            repositorio.eliminarPorTipoMascota(tipo_mascota);
+            return "Se ha eliminado la mascota por su tipo";
+        } else {
+            return "No se ha encontrado la mascota con ese tipo";
+        }
+    }
 
 }

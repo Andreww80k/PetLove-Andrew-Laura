@@ -109,9 +109,14 @@ public class ControladorProducto {
     }
 
     //Metodo para Eliminar
-    @DeleteMapping("/eliminarProducto/{nombre_producto}")
-    public String eliminarProducto(@PathVariable("nombre_producto")String nombre_producto){
-        return  servicio.EliminarCorreo(nombre_producto);
+    @DeleteMapping("/eliminarProducto/{id_producto}")
+    public String eliminarProducto(@PathVariable("id_producto")Integer id_producto){
+        return servicio.EliminarProducto(id_producto);
+    }
+
+    @DeleteMapping("/eliminarProductoNombre/{nombre_producto}")
+    public String eliminarProductoPorNombre(@PathVariable("nombre_producto") String nombreProducto) {
+        return servicio.eliminarProductoPorNombre(nombreProducto);
     }
 
 

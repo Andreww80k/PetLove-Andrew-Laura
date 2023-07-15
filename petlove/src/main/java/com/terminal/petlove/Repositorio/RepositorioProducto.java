@@ -5,7 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 public interface RepositorioProducto extends JpaRepository<Producto,Integer> {
 
@@ -20,13 +22,12 @@ public interface RepositorioProducto extends JpaRepository<Producto,Integer> {
 
 
     //Eliminar nombre:
-
+    @Query(value = "SELECT * FROM Producto WHERE nombre_producto = :nombre_producto", nativeQuery = true)
+    Optional<Producto> buscarPorNombreProducto(String nombre_producto);
+    @Transactional
     @Modifying
-    @Query(value = "Delete from producto where nombre_producto=?1",nativeQuery = true)
-    void eliminarProductoPorNombre(String nombre_producto);
-
-
-
+    @Query(value = "DELETE FROM Producto WHERE nombre_producto = :nombre_producto", nativeQuery = true)
+    void eliminarPorNombreProducto(String nombre_producto);
 
 
 

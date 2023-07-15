@@ -2,6 +2,7 @@ package com.terminal.petlove.Servicio;
 
 
 import com.terminal.petlove.Entidad.Mascota;
+import com.terminal.petlove.Entidad.Proveedor;
 import com.terminal.petlove.Entidad.RolUsuario;
 import com.terminal.petlove.Entidad.Usuario;
 import com.terminal.petlove.Repositorio.RepositorioRolUsuario;
@@ -111,8 +112,14 @@ public class ServicioUsuario {
 
     // Eliminar Usuario por Correo:
     public String eliminarUsuarioPorCorreo(String correoUsuario) {
-        repositorio.eliminarPorCorreoUsuario(correoUsuario);
-        return "Se ha eliminado el usuario por su correo";
+        Optional<Usuario> usuarioOptional = repositorio.buscarPorCorreoUsuario(correoUsuario);
+
+        if (usuarioOptional.isPresent()) {
+            repositorio.eliminarPorCorreoUsuario(correoUsuario);
+            return "Se ha eliminado el usuario por su correo";
+        } else {
+            return "No se ha encontrado el usuario con ese correo";
+        }
     }
 
 

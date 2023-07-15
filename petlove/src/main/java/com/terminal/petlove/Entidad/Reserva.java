@@ -29,7 +29,7 @@ public class Reserva {
     private String tipo_reserva;
 
     @Column(nullable = false, length = 30)
-    private String estado_reserva;
+    public String estado_reserva;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_mascota", referencedColumnName = "id_mascota", nullable = false)
