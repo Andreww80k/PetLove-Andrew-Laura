@@ -25,7 +25,7 @@ import java.util.Set;
         private String direccion_proveedor;
 
         @Column(nullable = false, length = 50)
-        private String correo_proveedor;
+        public String correo_proveedor;
 
         @Column(nullable = false, length = 50)
         private String contraseña_proveedor;

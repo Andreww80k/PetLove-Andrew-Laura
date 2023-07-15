@@ -27,7 +27,7 @@ public class Usuario {
     private String direccion_usuario;
 
     @Column(nullable = false,length = 50)
-    private String correo_usuario;
+    public String correo_usuario;
 
     @Column(length = 50)
     private String contrasena_usuario;

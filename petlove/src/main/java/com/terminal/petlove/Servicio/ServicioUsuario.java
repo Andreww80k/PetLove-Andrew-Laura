@@ -110,15 +110,10 @@ public class ServicioUsuario {
 
 
     // Eliminar Usuario por Correo:
-  // public String eliminarUsuarioPorCorreo(String correo_usuario) {
-  //     Optional<Usuario> usuarioOptional = repositorio.findByCorreo(correo_usuario);
-  //     if (usuarioOptional.isPresent()) {
-  //         repositorio.delete(usuarioOptional.get());
-  //         return "Se ha eliminado el usuario por completo";
-  //     } else {
-  //         return "No se registra ningún usuario con ese correo para eliminar";
-  //     }
-  // }
+    public String eliminarUsuarioPorCorreo(String correoUsuario) {
+        repositorio.eliminarPorCorreoUsuario(correoUsuario);
+        return "Se ha eliminado el usuario por su correo";
+    }
 
 
 }

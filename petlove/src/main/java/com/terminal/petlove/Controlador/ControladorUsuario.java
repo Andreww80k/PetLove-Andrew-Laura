@@ -159,8 +159,11 @@ public class ControladorUsuario {
         return servicio.EliminarUsuario(id_usuario);
     }
 
-    //Eliminar por Correo :
-
+    //Eliminar por Correo:
+    @DeleteMapping("/eliminarUsuarioCorreo/{correo_usuario}")
+    public String eliminarUsuarioPorCorreo(@PathVariable("correo_usuario") String correoUsuario) {
+        return servicio.eliminarUsuarioPorCorreo(correoUsuario);
+    }
 
 
 }

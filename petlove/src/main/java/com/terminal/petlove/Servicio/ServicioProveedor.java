@@ -2,10 +2,13 @@ package com.terminal.petlove.Servicio;
 
 import com.terminal.petlove.Entidad.Proveedor;
 import com.terminal.petlove.Repositorio.RepositorioProveedor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class ServicioProveedor {
 
     private RepositorioProveedor repositorio;
@@ -60,5 +63,16 @@ public class ServicioProveedor {
             return "Proveedor eliminado exitosamente";
         }
         else return "Proveedor no registrado";
+    }
+
+    public String eliminarProveedorPorCorreo(String correoProveedor) {
+        Optional<Proveedor> proveedorOptional = repositorio.buscarPorCorreoProveedor(correoProveedor);
+
+        if (proveedorOptional.isPresent()) {
+            repositorio.eliminarPorCorreoProveedor(correoProveedor);
+            return "Se ha eliminado el proveedor por su correo";
+        } else {
+            return "No se ha encontrado el proveedor con ese correo";
+        }
     }
 }

@@ -3,12 +3,11 @@ package com.terminal.petlove.Repositorio;
 
 import com.terminal.petlove.Entidad.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
+import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface RepositorioUsuario extends JpaRepository<Usuario, Integer> {
@@ -34,7 +33,10 @@ public interface RepositorioUsuario extends JpaRepository<Usuario, Integer> {
     @Query(value = "SELECT u.id_usuario, u.apellido_usuario, u.contrasena_usuario, u.correo_usuario, u.direccion_usuario, u.nombre_usuario, u.telefono_usuario FROM usuario AS u WHERE u.nombre_usuario = ?1", nativeQuery = true)
     List<Object[]> ListarDatosUsuarioNombre(String nombre_usuario);
 
-
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM Usuario u WHERE u.correo_usuario = ?1")
+    void eliminarPorCorreoUsuario(String correo_usuario);
     //Sirve para eliminar el usuario mediante el correo
     //Optional<Usuario> findByCorreo(String correo_usuario);
 

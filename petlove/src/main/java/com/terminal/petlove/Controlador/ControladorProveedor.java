@@ -9,6 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "*",maxAge = 3600)
+@RestController
 public class ControladorProveedor {
     private ServicioProveedor servicio;
 
@@ -20,7 +22,7 @@ public class ControladorProveedor {
     //Crear la ruta y retorna a un arraylist
 
     @GetMapping("/ListarProveedor")
-    public ArrayList<Proveedor> listarProvee() {
+    public ArrayList<Proveedor> listarProveedor() {
         return servicio.listarProveedor();
     }
 
@@ -132,5 +134,10 @@ public class ControladorProveedor {
     @DeleteMapping("/eliminarProveedor/{id}")
     public String eliminarProveedor(@PathVariable("id")Integer id){
         return  servicio.eliminarProveedor(id);
+    }
+
+    @DeleteMapping("/eliminarProveedorCorreo/{correo_proveedor}")
+    public String eliminarProveedorPorCorreo(@PathVariable("correo_proveedor") String correoProveedor) {
+        return servicio.eliminarProveedorPorCorreo(correoProveedor);
     }
 }

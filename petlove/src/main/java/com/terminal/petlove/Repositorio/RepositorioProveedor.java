@@ -2,10 +2,13 @@ package com.terminal.petlove.Repositorio;
 
 import com.terminal.petlove.Entidad.Proveedor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface RepositorioProveedor extends JpaRepository <Proveedor,Integer>{
@@ -31,8 +34,13 @@ public interface RepositorioProveedor extends JpaRepository <Proveedor,Integer>{
     List<Object[]> ListaProveedorCorreo(String correo_proveedor);
 
 
+    @Query("SELECT p FROM Proveedor p WHERE p.correo_proveedor = :correo_proveedor")
+    Optional<Proveedor> buscarPorCorreoProveedor(String correo_proveedor);
     //para eliminar por string
-
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM Proveedor p WHERE p.correo_proveedor = ?1", nativeQuery = true)
+    void eliminarPorCorreoProveedor(String correo_proveedor);
 
 
 }
