@@ -105,9 +105,9 @@ public class ServicioMascota {
     }
 
     public String eliminarMascotaPorNombre(String nombre_mascota) {
-        Optional<Mascota> mascotaOptional = repositorio.buscarPorNombreMascota(nombre_mascota);
+        List<Mascota> mascotas = repositorio.buscarPorNombreMascota(nombre_mascota);
 
-        if (mascotaOptional.isPresent()) {
+        if (mascotas.isEmpty()) {
             repositorio.eliminarPorNombreMascota(nombre_mascota);
             return "Se ha eliminado la mascota por su nombre";
         } else {
@@ -116,9 +116,9 @@ public class ServicioMascota {
     }
 
     public String eliminarMascotaPorTipo(String tipo_mascota) {
-        Optional<Mascota> mascotaOptional = repositorio.buscarPorTipoMascota(tipo_mascota);
+        List<Mascota> mascotas = repositorio.buscarPorTipoMascota(tipo_mascota);
 
-        if (mascotaOptional.isPresent()) {
+        if (mascotas.isEmpty()) {
             repositorio.eliminarPorTipoMascota(tipo_mascota);
             return "Se ha eliminado la mascota por su tipo";
         } else {

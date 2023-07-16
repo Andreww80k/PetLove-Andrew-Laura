@@ -31,14 +31,14 @@ public interface RepositorioMascota extends JpaRepository<Mascota, Integer> {
     List <Object[]>ListarMascotasNombre(String nombre_mascota);
 
     @Query("SELECT m FROM Mascota m WHERE m.nombre_mascota = :nombre_mascota")
-    Optional<Mascota> buscarPorNombreMascota(String nombre_mascota);
+    List<Mascota> buscarPorNombreMascota(String nombre_mascota);
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM Mascota m WHERE m.nombre_mascota = ?1")
     void eliminarPorNombreMascota(String nombre_mascota);
 
     @Query("SELECT m FROM Mascota m WHERE m.tipo_mascota = :tipo_mascota")
-    Optional<Mascota> buscarPorTipoMascota(String tipo_mascota);
+    List<Mascota> buscarPorTipoMascota(String tipo_mascota);
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM Mascota m WHERE m.tipo_mascota = ?1")

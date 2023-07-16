@@ -79,8 +79,6 @@ public class ServicioReserva {
                 ReservaExistente.setEstado_reserva(ReservaActualizada.getEstado_reserva());
             }
 
-
-
             repositorio.save(ReservaExistente);
             return "Reserva actualizada exitosamente.";
         } else {
@@ -100,14 +98,26 @@ public class ServicioReserva {
     }
 
     public String eliminarReservaPorEstado(String estado_reserva) {
-        Optional<Reserva> reservaOptional = repositorio.buscarPorEstadoReserva(estado_reserva);
+        List<Reserva> reservas = repositorio.buscarPorEstadoReserva(estado_reserva);
 
-        if (reservaOptional.isPresent()) {
+        if (reservas.isEmpty()) {
             repositorio.eliminarPorEstadoReserva(estado_reserva);
             return "Se ha eliminado la reserva por su estado";
         } else {
             return "No se ha encontrado la reserva con ese estado";
         }
     }
+
+    public String eliminarReservaPorTipo(String tipo_reserva) {
+        List<Reserva> reservas = repositorio.buscarPorTipoReserva(tipo_reserva);
+
+        if (!reservas.isEmpty()) {
+            repositorio.eliminarPorTipoReserva(tipo_reserva);
+            return "Se han eliminado las reservas por su tipo";
+        } else {
+            return "No se han encontrado reservas con ese tipo";
+        }
+    }
+
 
 }

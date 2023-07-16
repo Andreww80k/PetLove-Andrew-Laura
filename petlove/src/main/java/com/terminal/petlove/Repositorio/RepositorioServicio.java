@@ -8,12 +8,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface RepositorioServicio extends JpaRepository<Servicio, Integer> {
     @Query(value = "SELECT * FROM Servicio WHERE tipo_servicio = :tipo_servicio", nativeQuery = true)
-    Optional<Servicio> buscarPorTipoServicio(String tipo_servicio);
+    List<Servicio> buscarPorTipoServicio(String tipo_servicio);
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM Servicio WHERE tipo_servicio = :tipo_servicio", nativeQuery = true)

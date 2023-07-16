@@ -99,9 +99,9 @@ public class ServicioRolUsuario {
     }
 
     public String eliminarRolUsuarioPorNombre(String nombre_rol_usuario) {
-        Optional<RolUsuario> rolUsuarioOptional = repoRUsu.buscarPorNombreRolUsuario(nombre_rol_usuario);
+        List<RolUsuario> rolUsuarios = repoRUsu.buscarPorNombreRolUsuario(nombre_rol_usuario);
 
-        if (rolUsuarioOptional.isPresent()) {
+        if (rolUsuarios.isEmpty()) {
             repoRUsu.eliminarPorNombreRolUsuario(nombre_rol_usuario);
             return "Se ha eliminado el rol por su nombre";
         } else {

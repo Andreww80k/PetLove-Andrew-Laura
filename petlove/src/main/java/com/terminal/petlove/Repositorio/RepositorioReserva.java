@@ -31,9 +31,16 @@ public interface RepositorioReserva extends JpaRepository<Reserva, Integer> {
 
 
     @Query(value = "SELECT * FROM Reserva WHERE estado_reserva = :estado_reserva", nativeQuery = true)
-    Optional<Reserva> buscarPorEstadoReserva(String estado_reserva);
+    List<Reserva> buscarPorEstadoReserva(String estado_reserva);
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM Reserva WHERE estado_reserva = :estado_reserva", nativeQuery = true)
     void eliminarPorEstadoReserva(String estado_reserva);
+
+    @Query(value = "SELECT * FROM Reserva WHERE tipo_reserva = :tipo_reserva", nativeQuery = true)
+    List<Reserva> buscarPorTipoReserva(String tipo_reserva);
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM Reserva WHERE tipo_reserva = :tipo_reserva", nativeQuery = true)
+    void eliminarPorTipoReserva(String tipo_reserva);
 }

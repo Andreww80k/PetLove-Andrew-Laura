@@ -35,7 +35,7 @@ public interface RepositorioProveedor extends JpaRepository <Proveedor,Integer>{
 
 
     @Query("SELECT p FROM Proveedor p WHERE p.correo_proveedor = :correo_proveedor")
-    Optional<Proveedor> buscarPorCorreoProveedor(String correo_proveedor);
+    List<Proveedor> buscarPorCorreoProveedor(String correo_proveedor);
     //para eliminar por string
     @Transactional
     @Modifying

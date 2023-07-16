@@ -112,9 +112,9 @@ public class ServicioUsuario {
 
     // Eliminar Usuario por Correo:
     public String eliminarUsuarioPorCorreo(String correoUsuario) {
-        Optional<Usuario> usuarioOptional = repositorio.buscarPorCorreoUsuario(correoUsuario);
+        List<Usuario> usuarios = repositorio.buscarPorCorreoUsuario(correoUsuario);
 
-        if (usuarioOptional.isPresent()) {
+        if (usuarios.isEmpty()) {
             repositorio.eliminarPorCorreoUsuario(correoUsuario);
             return "Se ha eliminado el usuario por su correo";
         } else {

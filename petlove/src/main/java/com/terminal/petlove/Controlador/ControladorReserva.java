@@ -120,4 +120,9 @@ public class ControladorReserva {
         return servicio.eliminarReservaPorEstado(estadoReserva);
     }
 
+    @DeleteMapping("/eliminarReservaTipo/{tipo_reserva}")
+    public String eliminarReservaPorTipo(@PathVariable("tipo_reserva") String tipoReserva) {
+        return servicio.eliminarReservaPorTipo(tipoReserva);
+    }
+
 }

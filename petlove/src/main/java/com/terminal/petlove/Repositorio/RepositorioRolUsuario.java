@@ -23,7 +23,7 @@ public interface RepositorioRolUsuario extends JpaRepository<RolUsuario, Integer
     List<Object[]> ListarDatosRolNombre(String nombre_rol_usuario);
 
     @Query(value = "SELECT * FROM rol_usuario WHERE nombre_rol_usuario = :nombre_rol_usuario", nativeQuery = true)
-    Optional<RolUsuario> buscarPorNombreRolUsuario(String nombre_rol_usuario);
+    List<RolUsuario> buscarPorNombreRolUsuario(String nombre_rol_usuario);
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM rol_usuario WHERE nombre_rol_usuario = :nombre_rol_usuario", nativeQuery = true)

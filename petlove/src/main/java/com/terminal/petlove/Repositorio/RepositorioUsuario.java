@@ -35,7 +35,7 @@ public interface RepositorioUsuario extends JpaRepository<Usuario, Integer> {
     List<Object[]> ListarDatosUsuarioNombre(String nombre_usuario);
 
     @Query("SELECT u FROM Usuario u WHERE u.correo_usuario = :correo_usuario")
-    Optional<Usuario> buscarPorCorreoUsuario(String correo_usuario);
+    List<Usuario> buscarPorCorreoUsuario(String correo_usuario);
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM Usuario u WHERE u.correo_usuario = ?1")

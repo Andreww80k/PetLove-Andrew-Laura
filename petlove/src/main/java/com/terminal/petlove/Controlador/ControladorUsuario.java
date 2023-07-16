@@ -150,7 +150,7 @@ public class ControladorUsuario {
     //Actualizar:
     @PutMapping("/actualizarUsuario/{id_usuario}")
     public String actualizarUsuario(@PathVariable("id_usuario") Integer id_usuario, @RequestBody Usuario usuarioActualizado) {
-        return servicio.AgregarUsuario(id_usuario, usuarioActualizado);
+        return servicio.actualizarUsuario(id_usuario, usuarioActualizado);
     }
 
     //Eliminar

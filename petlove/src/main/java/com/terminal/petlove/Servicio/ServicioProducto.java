@@ -65,9 +65,9 @@ public class ServicioProducto {
     }
 
     public String eliminarProductoPorNombre(String nombre_producto) {
-        Optional<Producto> productoOptional = repositorio.buscarPorNombreProducto(nombre_producto);
+        List<Producto> productos = repositorio.buscarPorNombreProducto(nombre_producto);
 
-        if (productoOptional.isPresent()) {
+        if (productos.isEmpty()) {
             repositorio.eliminarPorNombreProducto(nombre_producto);
             return "Se ha eliminado el producto por su nombre";
         } else {

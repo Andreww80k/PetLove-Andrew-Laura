@@ -23,7 +23,7 @@ public interface RepositorioProducto extends JpaRepository<Producto,Integer> {
 
     //Eliminar nombre:
     @Query(value = "SELECT * FROM Producto WHERE nombre_producto = :nombre_producto", nativeQuery = true)
-    Optional<Producto> buscarPorNombreProducto(String nombre_producto);
+    List<Producto> buscarPorNombreProducto(String nombre_producto);
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM Producto WHERE nombre_producto = :nombre_producto", nativeQuery = true)

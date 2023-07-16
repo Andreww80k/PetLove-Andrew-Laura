@@ -7,6 +7,7 @@ import com.terminal.petlove.Repositorio.RepositorioServicio;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -81,9 +82,9 @@ public class ServicioServicio {
     }
 
     public String eliminarServicioPorTipo(String tipo_servicio) {
-        Optional<Servicio> servicioOptional = repositorio.buscarPorTipoServicio(tipo_servicio);
+        List<Servicio> servicios = repositorio.buscarPorTipoServicio(tipo_servicio);
 
-        if (servicioOptional.isPresent()) {
+        if (servicios.isEmpty()) {
             repositorio.eliminarPorTipoServicio(tipo_servicio);
             return "Se ha eliminado el servicio por su tipo";
         } else {

@@ -66,9 +66,9 @@ public class ServicioProveedor {
     }
 
     public String eliminarProveedorPorCorreo(String correoProveedor) {
-        Optional<Proveedor> proveedorOptional = repositorio.buscarPorCorreoProveedor(correoProveedor);
+        List<Proveedor> proveedors = repositorio.buscarPorCorreoProveedor(correoProveedor);
 
-        if (proveedorOptional.isPresent()) {
+        if (proveedors.isEmpty()) {
             repositorio.eliminarPorCorreoProveedor(correoProveedor);
             return "Se ha eliminado el proveedor por su correo";
         } else {
