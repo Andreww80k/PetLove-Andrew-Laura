@@ -30,6 +30,12 @@ public interface RepositorioMascota extends JpaRepository<Mascota, Integer> {
     @Query(value = "SELECT m.id_mascota, m.edad_mascota, m.nombre_mascota , m.peso_mascota, m.raza_mascota, m.tipo_mascota FROM mascota AS m WHERE m.nombre_mascota= ?1",nativeQuery = true)
     List <Object[]>ListarMascotasNombre(String nombre_mascota);
 
+    @Query(value = "SELECT m.id_mascota, m.edad_mascota, m.nombre_mascota , m.peso_mascota, m.raza_mascota, m.tipo_mascota FROM mascota AS m WHERE m.tipo_mascota= ?1",nativeQuery = true)
+    List <Object[]>ListarMascotasTipo(String tipo_mascota);
+
+    @Query(value = "SELECT m.id_mascota, m.edad_mascota, m.nombre_mascota , m.peso_mascota, m.raza_mascota, m.tipo_mascota FROM mascota AS m WHERE m.raza_mascota= ?1",nativeQuery = true)
+    List <Object[]>ListarMascotasRaza(String raza_mascota);
+
     @Query("SELECT m FROM Mascota m WHERE m.nombre_mascota = :nombre_mascota")
     List<Mascota> buscarPorNombreMascota(String nombre_mascota);
     @Transactional

@@ -42,7 +42,13 @@ public class ServicioMascota {
             return repositorio.ListarMascotasNombre(nombre_mascota);
     }
 
+    public List<Object[]>buscarMascotaTipo(String tipo_mascota){
+        return repositorio.ListarMascotasTipo(tipo_mascota);
+    }
 
+    public List<Object[]>buscarMascotaRaza(String raza_mascota){
+        return repositorio.ListarMascotasRaza(raza_mascota);
+    }
 
 
     //Metodo para agregar Foraneas
