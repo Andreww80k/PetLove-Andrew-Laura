@@ -22,7 +22,7 @@ public interface RepositorioUsuario extends JpaRepository<Usuario, Integer> {
 
     //Para buscar por un id siendo un inner join con llave foranea
 
-    @Query(value = "select ru.id_rol_usuario,u.id_usuario, u.apellido_usuario, u.contrasena_usuario, u.correo_usuario ,u.direccion_usuario, u.nombre_usuario, u.telefono_usuario from rol_usuario as ru inner join usuario as u on ru.id_rol_usuario=u.id_rol_usuario=:dato",nativeQuery = true)
+    @Query(value = "select ru.id_rol_usuario,u.id_usuario, u.apellido_usuario, u.contrasena_usuario, u.correo_usuario ,u.direccion_usuario, u.nombre_usuario, u.telefono_usuario from rol_usuario as ru inner join usuario as u on ru.id_rol_usuario=u.id_rol_usuario WHERE u.id_usuario=:dato",nativeQuery = true)
     List<Object[]>ListarDatosUsuarioInner(Integer dato);
 
     @Query(value = "SELECT u.id_usuario, u.apellido_usuario, u.contrasena_usuario, u.correo_usuario, u.direccion_usuario, u.nombre_usuario, u.telefono_usuario FROM usuario AS u WHERE u.correo_usuario = ?1", nativeQuery = true)

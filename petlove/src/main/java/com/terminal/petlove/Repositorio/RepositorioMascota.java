@@ -20,7 +20,7 @@ public interface RepositorioMascota extends JpaRepository<Mascota, Integer> {
 
 
     //Para buscar por llaves foraneas:
-    @Query(value ="select u.id_usuario, m.id_mascota, m.edad_mascota ,m.nombre_mascota, m.peso_mascota, m.raza_mascota,m.tipo_mascota from usuario as u inner join mascota as m on u.id_usuario=m.id_usuario=:dato", nativeQuery = true)
+    @Query(value ="select u.id_usuario, m.id_mascota, m.edad_mascota ,m.nombre_mascota, m.peso_mascota, m.raza_mascota,m.tipo_mascota from usuario as u inner join mascota as m on u.id_usuario=m.id_usuario WHERE m.id_mascota=:dato", nativeQuery = true)
     List<Object[]> ListarDatosMascotasInner(Integer dato);
 
 
