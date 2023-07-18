@@ -15,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface RepositorioRolUsuario extends JpaRepository<RolUsuario, Integer > {
 
-    @Query(value = "SELECT rol.id_rol_usuario, rol.nombre_rol_usuario FROM rol_usuario AS rol WHERE rol.nombre_rol_usuario", nativeQuery = true)
+    @Query(value = "SELECT rol.id_rol_usuario, rol.nombre_rol_usuario FROM rol_usuario AS rol WHERE rol.nombre_rol_usuario=rol.nombre_rol_usuario", nativeQuery = true)
     List<Object[]> ListarDatosRol();
 
 //Buscar Nombre de rol

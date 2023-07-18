@@ -56,8 +56,55 @@ public class ControladorProducto {
         return json;
     }
 
+    @GetMapping("/BuscarProducto/{dato}")
+    public List<Map<String,Object>>datosProductoInner(@PathVariable("dato")Integer dato){
+        List<Object[]>lista=servicio.ListarProductoInner(dato);
+        List<Map<String,Object>> json=new ArrayList<>();
 
+        for (Object[]objects:lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
 
+            //Segun el orden de la consulta nuevamente:
+
+            datos.put("id_producto, ",objects[0]);
+            datos.put("descripcion_producto", objects[1]);
+            datos.put("nombre_producto",objects[2]);
+            datos.put("precio_producto",objects[3]);
+            datos.put("stock_producto",objects[4]);
+
+            json.add(datos);
+        }
+
+        for (Map<String,Object>Pro:json){
+            System.out.println(Pro);
+        }
+        return json;
+    }
+
+    @GetMapping("/BuscarStockProducto/{stock_producto}")
+    public List<Map<String,Object>>datosProductoStock(@PathVariable("stock_producto")int stock_producto){
+        List<Object[]>lista=servicio.ListarProductoStock(stock_producto);
+        List<Map<String,Object>> json=new ArrayList<>();
+
+        for (Object[]objects:lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
+
+            //Segun el orden de la consulta nuevamente:
+
+            datos.put("id_producto, ",objects[0]);
+            datos.put("descripcion_producto", objects[1]);
+            datos.put("nombre_producto",objects[2]);
+            datos.put("precio_producto",objects[3]);
+            datos.put("stock_producto",objects[4]);
+
+            json.add(datos);
+        }
+
+        for (Map<String,Object>Pro:json){
+            System.out.println(Pro);
+        }
+        return json;
+    }
 
     //Buscar por nombre el producto
 

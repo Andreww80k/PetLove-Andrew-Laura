@@ -28,13 +28,16 @@ public class ServicioProveedor {
 
     //Servicio para buscar por nombre de proveedor:
 
+    public List<Object[]> buscarProveedorInner(Integer dato){
+        return repositorio.ListarDatosProveedorInner(dato);
+    }
+
     public List<Object[]>ListarProveedorNombre(String nombre_proveedor){
         return repositorio.ListaProveedorNombre(nombre_proveedor);
     }
 
     public List<Object[]> buscarProveedorCorreo(String correo_proveedor) {
         return repositorio.ListaProveedorCorreo(correo_proveedor);
-
     }
     public Proveedor buscarProveedor(Integer id) {
         if(repositorio.findById(id).isPresent())

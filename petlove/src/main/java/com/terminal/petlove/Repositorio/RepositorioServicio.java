@@ -13,6 +13,10 @@ import java.util.Optional;
 
 @Repository
 public interface RepositorioServicio extends JpaRepository<Servicio, Integer> {
+
+    @Query(value = "SELECT * FROM Servicio WHERE tipo_servicio = :tipo_servicio", nativeQuery = true)
+    List<Object[]> buscarPorTipo(String tipo_servicio);
+
     @Query(value = "SELECT * FROM Servicio WHERE tipo_servicio = :tipo_servicio", nativeQuery = true)
     List<Servicio> buscarPorTipoServicio(String tipo_servicio);
     @Transactional

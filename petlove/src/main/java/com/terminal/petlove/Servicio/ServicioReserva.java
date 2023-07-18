@@ -1,14 +1,12 @@
 package com.terminal.petlove.Servicio;
 
 
-import com.terminal.petlove.Entidad.Mascota;
-import com.terminal.petlove.Entidad.Producto;
-import com.terminal.petlove.Entidad.Reserva;
-import com.terminal.petlove.Entidad.Usuario;
+import com.terminal.petlove.Entidad.*;
 import com.terminal.petlove.Repositorio.RepositorioMascota;
 import com.terminal.petlove.Repositorio.RepositorioReserva;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +28,9 @@ public class ServicioReserva {
 
     //Metodos
 
+    public ArrayList<Reserva> listarReserva(){
+        return (ArrayList<Reserva>) repositorio.findAll();
+    }
     public List<Object[]>DatosReserva(){
         return repositorio.ListarReservas();
     }
@@ -40,6 +41,13 @@ public class ServicioReserva {
         return repositorio.ListarReservasInner(dato);
     }
 
+    public List<Object[]> BuscarReservaEstado(String estado_reserva) {
+        return repositorio.buscarPorEstado(estado_reserva);
+    }
+
+    public List<Object[]> BuscarReservaTipo(String tipo_reserva) {
+        return repositorio.buscarPorTipo(tipo_reserva);
+    }
 
         //Metodo para agregar foraneas:
 
@@ -100,7 +108,7 @@ public class ServicioReserva {
     public String eliminarReservaPorEstado(String estado_reserva) {
         List<Reserva> reservas = repositorio.buscarPorEstadoReserva(estado_reserva);
 
-        if (reservas.isEmpty()) {
+        if (!reservas.isEmpty()) {
             repositorio.eliminarPorEstadoReserva(estado_reserva);
             return "Se ha eliminado la reserva por su estado";
         } else {

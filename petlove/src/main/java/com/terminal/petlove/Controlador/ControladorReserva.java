@@ -1,6 +1,7 @@
 package com.terminal.petlove.Controlador;
 
 
+import com.terminal.petlove.Entidad.Proveedor;
 import com.terminal.petlove.Entidad.Reserva;
 import com.terminal.petlove.Entidad.Usuario;
 import com.terminal.petlove.Repositorio.RepositorioMascota;
@@ -34,6 +35,10 @@ public class ControladorReserva {
     }
 
 
+    @GetMapping("/ListarReserva")
+    public ArrayList<Reserva> listarReserva() {
+        return servicio.listarReserva();
+    }
     //Crera la ruta que retorna un Arraylist
 
     @GetMapping("/ListarReservas")
@@ -48,12 +53,12 @@ public class ControladorReserva {
             Map<String, Object> datos = new LinkedHashMap<>();
 
             //Segun el orden la consulta se ingresa
-            datos.put("id_mascota", objects[0]);
-            datos.put("id_reserva", objects[1]);
-            datos.put("estado_reserva", objects[2]);
-            datos.put("fecha_entrega", objects[3]);
-            datos.put("fecha_reserva", objects[4]);
-            datos.put("tipo_reserva", objects[5]);
+            datos.put("id_reserva", objects[0]);
+            datos.put("estado_reserva", objects[1]);
+            datos.put("fecha_entrega", objects[2]);
+            datos.put("fecha_reserva", objects[3]);
+            datos.put("tipo_reserva", objects[4]);
+            datos.put("id_mascota", objects[5]);
 
             json.add(datos);
         }
@@ -77,12 +82,12 @@ public class ControladorReserva {
             Map<String, Object> datos = new LinkedHashMap<>();
 
             //Segun el orden la consulta se ingresa
-            datos.put("id_mascota", objects[0]);
-            datos.put("id_reserva", objects[1]);
-            datos.put("estado_reserva", objects[2]);
-            datos.put("fecha_entrega", objects[3]);
-            datos.put("fecha_reserva", objects[4]);
-            datos.put("tipo_reserva", objects[5]);
+            datos.put("id_reserva", objects[0]);
+            datos.put("estado_reserva", objects[1]);
+            datos.put("fecha_entrega", objects[2]);
+            datos.put("fecha_reserva", objects[3]);
+            datos.put("tipo_reserva", objects[4]);
+            datos.put("id_mascota", objects[5]);
 
             json.add(datos);
         }
@@ -92,6 +97,61 @@ public class ControladorReserva {
             }
 
             return json;
+    }
+
+    @GetMapping("/BuscarEstadoReserva/{estado_reserva}")
+    public List<Map<String, Object>> datosReservaEstado(@PathVariable("estado_reserva") String estado_reserva) {
+        List<Object[]> lista = servicio.BuscarReservaEstado(estado_reserva);
+        List<Map<String, Object>> json = new ArrayList<>();
+
+        //For
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            //Segun el orden la consulta se ingresa
+            datos.put("id_reserva", objects[0]);
+            datos.put("estado_reserva", objects[1]);
+            datos.put("fecha_entrega", objects[2]);
+            datos.put("fecha_reserva", objects[3]);
+            datos.put("tipo_reserva", objects[4]);
+            datos.put("id_mascota", objects[5]);
+
+            json.add(datos);
+        }
+
+        for (Map<String, Object> Res : json) {
+            System.out.println(Res);
+        }
+
+        return json;
+    }
+
+
+    @GetMapping("/BuscarTipoReserva/{tipo_reserva}")
+    public List<Map<String, Object>> datosReservaTipo(@PathVariable("tipo_reserva") String tipo_reserva) {
+        List<Object[]> lista = servicio.BuscarReservaTipo(tipo_reserva);
+        List<Map<String, Object>> json = new ArrayList<>();
+
+        //For
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            //Segun el orden la consulta se ingresa
+            datos.put("id_reserva", objects[0]);
+            datos.put("estado_reserva", objects[1]);
+            datos.put("fecha_entrega", objects[2]);
+            datos.put("fecha_reserva", objects[3]);
+            datos.put("tipo_reserva", objects[4]);
+            datos.put("id_mascota", objects[5]);
+
+            json.add(datos);
+        }
+
+        for (Map<String, Object> Res : json) {
+            System.out.println(Res);
+        }
+
+        return json;
     }
 
     //Agregar

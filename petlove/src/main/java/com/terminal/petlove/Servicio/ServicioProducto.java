@@ -32,6 +32,13 @@ public class ServicioProducto {
         return repositorio.ListarProductoNombres(nombre_producto);
     }
 
+    public List<Object[]>ListarProductoStock(int stock_producto){
+        return repositorio.ListarProductoStock(stock_producto);
+    }
+
+    public List<Object[]>ListarProductoInner(Integer id_producto){
+        return repositorio.ListarProductoInner(id_producto);
+    }
 
     public Producto buscarProducto(Integer doc) {
         if(repositorio.findById(doc).isPresent())

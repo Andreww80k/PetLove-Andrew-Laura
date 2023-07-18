@@ -18,20 +18,25 @@ public interface RepositorioReserva extends JpaRepository<Reserva, Integer> {
 
 
 
-    @Query(value = "select mas.id_mascota, res.id_reserva, res.estado_reserva, res.fecha_entrega , res.fecha_reserva,res.tipo_reserva from reserva as res inner join mascota as mas on mas.id_mascota=res.id_mascota",nativeQuery = true)
+    @Query(value = "SELECT * FROM reserva",nativeQuery = true)
     List<Object[]>ListarReservas();
-
-
 
     //Para buscar por id siendo un inner join con llave foranea:
 
 
-    @Query(value = "select mas.id_mascota, res.id_reserva, res.estado_reserva, res.fecha_entrega , res.fecha_reserva,res.tipo_reserva from reserva as res inner join mascota as mas on mas.id_mascota=res.id_mascota=:dato",nativeQuery = true)
+    @Query(value = "SELECT * FROM Reserva WHERE id_reserva =:dato",nativeQuery = true)
     List<Object[]>ListarReservasInner(Integer dato);
 
+    @Query(value = "SELECT * FROM Reserva WHERE estado_reserva = :estado_reserva", nativeQuery = true)
+    List<Object[]> buscarPorEstado(String estado_reserva);
+
+    @Query(value = "SELECT * FROM Reserva WHERE tipo_reserva = :tipo_reserva", nativeQuery = true)
+    List<Object[]> buscarPorTipo(String tipo_reserva);
 
     @Query(value = "SELECT * FROM Reserva WHERE estado_reserva = :estado_reserva", nativeQuery = true)
     List<Reserva> buscarPorEstadoReserva(String estado_reserva);
+
+
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM Reserva WHERE estado_reserva = :estado_reserva", nativeQuery = true)
@@ -39,6 +44,7 @@ public interface RepositorioReserva extends JpaRepository<Reserva, Integer> {
 
     @Query(value = "SELECT * FROM Reserva WHERE tipo_reserva = :tipo_reserva", nativeQuery = true)
     List<Reserva> buscarPorTipoReserva(String tipo_reserva);
+
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM Reserva WHERE tipo_reserva = :tipo_reserva", nativeQuery = true)

@@ -6,6 +6,9 @@ import com.terminal.petlove.Servicio.ServicioServicio;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
@@ -31,7 +34,29 @@ public class ControladorServicio {
     @GetMapping("/buscarServicio/{id}")
     public Servicio buscarServicio(@PathVariable("id") Integer id) {
         return servicio.buscarServicio(id);
+    }
 
+    @GetMapping("/BuscarTipoServicio/{tipo_servicio}")
+    public List<Map<String, Object>> datosServicioTipo(@PathVariable("tipo_servicio") String tipo_servicio) {
+        List<Object[]> lista = servicio.BuscarServicioTipo(tipo_servicio);
+        List<Map<String, Object>> json = new ArrayList<>();
+
+        //For
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            //Segun el orden la consulta se ingresa
+            datos.put("id_servicio", objects[0]);
+            datos.put("tipo_servicio", objects[1]);
+
+            json.add(datos);
+        }
+
+        for (Map<String, Object> Ser : json) {
+            System.out.println(Ser);
+        }
+
+        return json;
     }
 
 

@@ -85,6 +85,32 @@ public class ControladorProveedor {
         return json;
     }
 
+    @GetMapping("/BuscarProveedor/{dato}")
+    public List<Map<String,Object>>datosProveedorInner(@PathVariable("dato")Integer dato){
+        List<Object[]>lista=servicio.buscarProveedorInner(dato);
+        List<Map<String,Object>> json=new ArrayList<>();
+
+        for (Object[]objects:lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
+
+            //Segun el orden de la consulta nuevamente:
+
+            datos.put("id_proveedor, ",objects[0]);
+            datos.put("apellido_proveedor", objects[1]);
+            datos.put("contraseña_proveedor",objects[2]);
+            datos.put("correo_proveedor",objects[3]);
+            datos.put("direccion_proveedor",objects[4]);
+            datos.put("nombre_proveedor",objects[5]);
+            datos.put("telefono_proveedor",objects[6]);
+
+            json.add(datos);
+        }
+
+        for (Map<String,Object>Prov:json){
+            System.out.println(Prov);
+        }
+        return json;
+    }
 
     @GetMapping("/BuscarCorreoProveedor/{correo_proveedor}")
     public List<Map<String,Object>>datosProveedorCorreo(@PathVariable("correo_proveedor")String correo_proveedor){

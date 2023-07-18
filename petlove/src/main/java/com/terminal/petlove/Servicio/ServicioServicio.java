@@ -36,6 +36,9 @@ public class ServicioServicio {
         else return null;
     }
 
+    public List<Object[]> BuscarServicioTipo(String tipo_servicio) {
+        return repositorio.buscarPorTipo(tipo_servicio);
+    }
     //Metodo para agregar:
 
 
