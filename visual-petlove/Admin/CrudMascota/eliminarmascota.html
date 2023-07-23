@@ -10,6 +10,7 @@
     <!-- Fuentes web de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -70,17 +71,23 @@
     <div class="content">
         <div class="container">
             <div class="form-box login">
-                <h1>Elimina Mascota</h1>
+                <h1>Elimina Mascota Por Nombre</h1>
                 <form id="loginForm" action="#">
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="person"></ion-icon></span>
-                        <input type="text" id="text" required>
-                        <label class="texto">Nombre</label>
+                        <select name="" id="mascotaEliminarNombre"></select>
                     </div>
-                    <div class="remember-forgot">
-                        <label><input type="checkbox" required>Aceptar terminos y condiciones</label>
+                    <button id="eliminarMascotaNombreBtn" class="button" type="submit">Elimina Mascota Nombre</button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-box login">
+                <h1>Elimina Mascota Por Tipo</h1>
+                <form id="loginForm" action="#">
+                    <div class="input-box">
+                        <select name="" id="mascotaEliminarTipo"></select>
                     </div>
-                    <button class="button" type="submit">Elimina Mascota</button>
+                    <button id="eliminarMascotaTipoBtn" class="button" type="submit">Elimina Mascota Tipo</button>
                 </form>
             </div>
         </div><br>
@@ -92,6 +99,9 @@
             </ul>
         </footer>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="Js/eliminarmascota.js"></script>
     <script>
         function toggleMenu(id) {
             var submenu = document.getElementById(id);

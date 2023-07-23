@@ -28,33 +28,33 @@ public class ControladorMascota {
     //Crear ruta que retorne a un arraylist
 
     @GetMapping("/ListarMascota")
-    public List<Map<String,Object>>datosMascota(){
-        List<Object[]>lista=servicio.DatosMascota();
-        List<Map<String,Object>>json=new ArrayList<>();
+    public List<Map<String, Object>> datosMascota() {
+        List<Object[]> lista = servicio.DatosMascota();
+        List<Map<String, Object>> json = new ArrayList<>();
 
         //For para recorrer todos los datos traidos del inner join
 
 
-        for (Object[] objects: lista){
-            Map<String,Object>datos=new LinkedHashMap<>();
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
 
 
             //Segun el orden de la consulta se ingresa
 
 
-            datos.put("id_usuario",objects[0]);
+            datos.put("id_usuario", objects[0]);
             datos.put("id_mascota", objects[1]);
-            datos.put("edad_mascota",objects[2]);
-            datos.put("nombre_mascota",objects[3]);
-            datos.put("peso_mascota",objects[4]);
-            datos.put("raza_mascota",objects[5]);
-            datos.put("tipo_mascota",objects[6]);
+            datos.put("edad_mascota", objects[2]);
+            datos.put("nombre_mascota", objects[3]);
+            datos.put("peso_mascota", objects[4]);
+            datos.put("raza_mascota", objects[5]);
+            datos.put("tipo_mascota", objects[6]);
 
 
             json.add(datos);
         }
 
-        for (Map<String,Object> Mas:json){
+        for (Map<String, Object> Mas : json) {
             System.out.println(Mas);
         }
 
@@ -66,31 +66,31 @@ public class ControladorMascota {
 
 
     @GetMapping("BuscarMascota/{dato}")
-    public List<Map<String,Object>>datosMascotaInner(@PathVariable("dato")Integer dato){
-        List<Object[]>lista=servicio.buscarMascotaInner(dato);
-        List<Map<String,Object>>json=new ArrayList<>();
+    public List<Map<String, Object>> datosMascotaInner(@PathVariable("dato") Integer dato) {
+        List<Object[]> lista = servicio.buscarMascotaInner(dato);
+        List<Map<String, Object>> json = new ArrayList<>();
 
 
         //For para recorrer los datos de los inner
 
-        for (Object[]objects:lista){
-            Map<String,Object>datos=new LinkedHashMap<>();
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
 
             //Segun el orden de la consulta nuevamente:
 
 
-            datos.put("id_usuario",objects[0]);
+            datos.put("id_usuario", objects[0]);
             datos.put("id_mascota", objects[1]);
-            datos.put("edad_mascota",objects[2]);
-            datos.put("nombre_mascota",objects[3]);
-            datos.put("peso_mascota",objects[4]);
-            datos.put("raza_mascota",objects[5]);
-            datos.put("tipo_mascota",objects[6]);
+            datos.put("edad_mascota", objects[2]);
+            datos.put("nombre_mascota", objects[3]);
+            datos.put("peso_mascota", objects[4]);
+            datos.put("raza_mascota", objects[5]);
+            datos.put("tipo_mascota", objects[6]);
 
             json.add(datos);
         }
 
-        for (Map<String,Object>Mas:json){
+        for (Map<String, Object> Mas : json) {
             System.out.println(Mas);
         }
         return json;
@@ -99,78 +99,78 @@ public class ControladorMascota {
     //Buscar mascota por inner join
 
     @GetMapping("/BuscarNombreMascota/{nombre_mascota}")
-    public List<Map<String,Object>>datosMascotaName(@PathVariable("nombre_mascota")String nombre_mascota){
-        List<Object[]>lista=servicio.buscarMascotaNombre(nombre_mascota);
-        List<Map<String,Object>> json=new ArrayList<>();
+    public List<Map<String, Object>> datosMascotaName(@PathVariable("nombre_mascota") String nombre_mascota) {
+        List<Object[]> lista = servicio.buscarMascotaNombre(nombre_mascota);
+        List<Map<String, Object>> json = new ArrayList<>();
 
-        for (Object[]objects:lista){
-            Map<String,Object>datos=new LinkedHashMap<>();
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
 
             //Segun el orden de la consulta nuevamente:
 
             datos.put("id_mascota", objects[0]);
-            datos.put("edad_mascota",objects[1]);
-            datos.put("nombre_mascota",objects[2]);
-            datos.put("peso_mascota",objects[3]);
-            datos.put("raza_mascota",objects[4]);
-            datos.put("tipo_mascota",objects[5]);
+            datos.put("edad_mascota", objects[1]);
+            datos.put("nombre_mascota", objects[2]);
+            datos.put("peso_mascota", objects[3]);
+            datos.put("raza_mascota", objects[4]);
+            datos.put("tipo_mascota", objects[5]);
 
             json.add(datos);
         }
 
-        for (Map<String,Object>Mas:json){
+        for (Map<String, Object> Mas : json) {
             System.out.println(Mas);
         }
         return json;
     }
 
     @GetMapping("/BuscarTipoMascota/{tipo_mascota}")
-    public List<Map<String,Object>>datosMascotaType(@PathVariable("tipo_mascota")String tipo_mascota){
-        List<Object[]>lista=servicio.buscarMascotaTipo(tipo_mascota);
-        List<Map<String,Object>> json=new ArrayList<>();
+    public List<Map<String, Object>> datosMascotaType(@PathVariable("tipo_mascota") String tipo_mascota) {
+        List<Object[]> lista = servicio.buscarMascotaTipo(tipo_mascota);
+        List<Map<String, Object>> json = new ArrayList<>();
 
-        for (Object[]objects:lista){
-            Map<String,Object>datos=new LinkedHashMap<>();
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
 
             //Segun el orden de la consulta nuevamente:
 
             datos.put("id_mascota", objects[0]);
-            datos.put("edad_mascota",objects[1]);
-            datos.put("nombre_mascota",objects[2]);
-            datos.put("peso_mascota",objects[3]);
-            datos.put("raza_mascota",objects[4]);
-            datos.put("tipo_mascota",objects[5]);
+            datos.put("edad_mascota", objects[1]);
+            datos.put("nombre_mascota", objects[2]);
+            datos.put("peso_mascota", objects[3]);
+            datos.put("raza_mascota", objects[4]);
+            datos.put("tipo_mascota", objects[5]);
 
             json.add(datos);
         }
 
-        for (Map<String,Object>Mas:json){
+        for (Map<String, Object> Mas : json) {
             System.out.println(Mas);
         }
         return json;
     }
 
     @GetMapping("/BuscarRazaMascota/{raza_mascota}")
-    public List<Map<String,Object>>datosMascotaBreed(@PathVariable("raza_mascota")String raza_mascota){
-        List<Object[]>lista=servicio.buscarMascotaRaza(raza_mascota);
-        List<Map<String,Object>> json=new ArrayList<>();
+    public List<Map<String, Object>> datosMascotaBreed(@PathVariable("raza_mascota") String raza_mascota) {
+        List<Object[]> lista = servicio.buscarMascotaRaza(raza_mascota);
+        List<Map<String, Object>> json = new ArrayList<>();
 
-        for (Object[]objects:lista){
-            Map<String,Object>datos=new LinkedHashMap<>();
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
 
             //Segun el orden de la consulta nuevamente:
 
             datos.put("id_mascota", objects[0]);
-            datos.put("edad_mascota",objects[1]);
-            datos.put("nombre_mascota",objects[2]);
-            datos.put("peso_mascota",objects[3]);
-            datos.put("raza_mascota",objects[4]);
-            datos.put("tipo_mascota",objects[5]);
+            datos.put("edad_mascota", objects[1]);
+            datos.put("nombre_mascota", objects[2]);
+            datos.put("peso_mascota", objects[3]);
+            datos.put("raza_mascota", objects[4]);
+            datos.put("tipo_mascota", objects[5]);
 
             json.add(datos);
         }
 
-        for (Map<String,Object>Mas:json){
+        for (Map<String, Object> Mas : json) {
             System.out.println(Mas);
         }
         return json;
@@ -179,7 +179,7 @@ public class ControladorMascota {
     //Para agregar foranea:
 
     @PostMapping("/AgregarMascota/{id_usuario}")
-    public String AgregarMascota(@PathVariable("id_usuario")Integer id_usuario, @RequestBody Mascota mascotas){
+    public String AgregarMascota(@PathVariable("id_usuario") Integer id_usuario, @RequestBody Mascota mascotas) {
         return servicio.agregarMascota(id_usuario, mascotas);
     }
 
@@ -188,7 +188,6 @@ public class ControladorMascota {
     public String actualizarMascota(@PathVariable("id_mascota") Integer id_mascota, @RequestBody Mascota mascotaActualizada) {
         return servicio.actualizarMascota(id_mascota, mascotaActualizada);
     }
-
 
     //Eliminar
     @DeleteMapping("/eliminarMascota/{id_mascota}")
