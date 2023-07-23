@@ -11,7 +11,7 @@ import java.util.Set;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_producto;
+    private Integer idproducto;
 
     @Column(nullable = false, length = 30)
     public String nombre_producto;
@@ -37,8 +37,8 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(Integer id_producto, String nombre_producto, String descripcion_producto, int precio_producto, int stock_producto, Set<DetalleVenta> detalleventa, Set<Producto_Proveedor> producto_proveedor) {
-        this.id_producto = id_producto;
+    public Producto(Integer idproducto, String nombre_producto, String descripcion_producto, int precio_producto, int stock_producto, Set<DetalleVenta> detalleventa, Set<Producto_Proveedor> producto_proveedor) {
+        this.idproducto = idproducto;
         this.nombre_producto = nombre_producto;
         this.descripcion_producto = descripcion_producto;
         this.precio_producto = precio_producto;
@@ -48,11 +48,11 @@ public class Producto {
     }
 
     public Integer getId_producto() {
-        return id_producto;
+        return idproducto;
     }
 
     public void setId_producto(Integer id_producto) {
-        this.id_producto = id_producto;
+        this.idproducto = id_producto;
     }
 
     public String getNombre_producto() {
@@ -106,7 +106,7 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto{" +
-                "id_producto=" + id_producto +
+                "idproducto=" + idproducto +
                 ", nombre_producto='" + nombre_producto + '\'' +
                 ", descripcion_producto='" + descripcion_producto + '\'' +
                 ", precio_producto=" + precio_producto +

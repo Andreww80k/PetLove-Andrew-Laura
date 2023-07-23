@@ -19,17 +19,24 @@ $(document).ready(function() {
         let envioDatos = JSON.stringify(producto)
 
         $.ajax({
-            url: "http://localhost:8080/AgregarProducto", 
+            url: "http://localhost:8080/agregarProducto",
             type: "POST",
             data: envioDatos,
             contentType: "application/JSON",
             async: false,
-            datatype: JSON,
+            datatype: "json",
             success: function(response) {
                 console.log(response);
-                console.log("Agregada la mascota");
-                alert("Agregada nueva mascota");
+                if (response === "El Producto se registró exitosamente") {
+                    console.log("Agregado el producto");
+                    alert("Agregado nuevo producto");
+                } else if (response === "El Producto ya existe en la base de datos y no se ha registrado") {
+                    alert("El producto ya existe en la base de datos");
+                } else {
+                    // Manejar otros posibles casos aquí
+                }
             }
         });
+        
     });
 });

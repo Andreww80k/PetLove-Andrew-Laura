@@ -20,7 +20,7 @@ public class DetalleVenta {
     private VentaCompra venta;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_producto", referencedColumnName = "id_producto", nullable = false)
+    @JoinColumn(name = "idproducto", referencedColumnName = "idproducto", nullable = false)
     @JsonIgnore
 
 
