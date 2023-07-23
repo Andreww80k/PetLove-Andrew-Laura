@@ -358,3 +358,24 @@ footer {
     text-align: center;
     padding: 10px;
 }
+
+select#correoEliminar {
+    width: 100%;
+    padding: 8px 20px;
+    font-size: 16px;
+    border: 1px solid #ad6a2b;
+    border-radius: 5px;
+    background-color: #faf3e8;
+    color: #ad6a2b;
+}
+
+/* Estilos para la flecha del select */
+select#correoEliminar::after {
+    content: "\f0d7"; /* Puedes cambiar el icono por el que desees (FontAwesome) */
+    font-family: FontAwesome; /* Asegúrate de que la fuente esté cargada */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Evita que la flecha se seleccione */
+}

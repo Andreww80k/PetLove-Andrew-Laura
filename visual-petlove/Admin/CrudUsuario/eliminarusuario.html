@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="Css/Csseliminarusuario.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Fuentes web de Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -73,14 +73,9 @@
                 <h1>Elimina Un Usuario</h1>
                 <form id="loginForm" action="#">
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                        <input type="email" id="email" required>
-                        <label class="texto">Correo</label>
+                        <select name="" id="correoEliminar"></select>
                     </div>
-                    <div class="remember-forgot">
-                        <label><input type="checkbox" required>Aceptar terminos y condiciones</label>
-                    </div>
-                    <button class="button" type="submit">Elimina Usuario</button>
+                    <button id="eliminarUsuarioBtn" class="button" type="submit">Elimina Usuario</button>
                 </form>
             </div>
         </div><br>
@@ -92,6 +87,9 @@
             </ul>
         </footer>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="Js/eliminarusuario.js"></script>
     <script>
         function toggleMenu(id) {
             var submenu = document.getElementById(id);
