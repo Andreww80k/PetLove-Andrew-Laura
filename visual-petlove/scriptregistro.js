@@ -14,7 +14,7 @@ function selectRol(){
         }
     })
 }
-
+console.log('Ayuda');
 $(document).ready(function() {
     selectRol();
     const GuardaUsuario = $("#GuardaUsuario");
