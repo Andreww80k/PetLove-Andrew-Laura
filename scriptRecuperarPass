@@ -1,0 +1,31 @@
+function sendEmail(usuario) {
+
+    document.querySelector('#code').textContent = usuario.codVerif;
+
+    if (usuario.estadoCuenta == 'Administrador'){
+        document.querySelector('#adminPlus').textContent = 'Administrador, Este es tu nuevo código de Verificación para ingresar a tu cuenta. ¡No lo Olvides!';
+    } else {
+        document.querySelector('#adminPlus').textContent = '';
+    }
+
+    var elemento = document.querySelector('.correoTemplate');
+    var contenido = elemento.innerHTML;
+
+    Email.send({
+      SecureToken : "e46ea9e2-a5ef-4adb-a94e-57672c70703a",
+      To : usuario.email,
+      From : "petlove.professional.grooming@gmail.com",
+      Subject : "Recuperar Contraseña - Cuenta PetLove Web",
+      Body : contenido
+    }).then(
+      message => {
+        if (message == 'OK'){
+            alert('Correo enviado con éxito.')
+            redirigir(usuario.email);
+        }else {
+            alert(message);
+            emailVal.textContent = 'No se pudo enviar el Correo, por favor, intentalo de nuevo.';
+        }
+      }
+    );
+}
