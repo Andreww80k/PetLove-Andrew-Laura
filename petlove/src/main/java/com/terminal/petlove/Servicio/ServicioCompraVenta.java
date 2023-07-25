@@ -40,6 +40,11 @@ public class ServicioCompraVenta {
         return repositorio.ListarCompraVentaEstado(estado_venta);
     }
 
+    public List<Object[]> ListarOrdenesCompra(Integer idUsuario){
+        return repositorio.ListarOrdenesCompra(idUsuario);
+    }
+
+
 
     //Agregar:
 
