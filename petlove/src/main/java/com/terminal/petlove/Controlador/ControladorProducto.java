@@ -11,7 +11,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
 public class ControladorProducto {
 
@@ -44,7 +43,7 @@ public class ControladorProducto {
 
 
             //Segun el orden de la consulta se ingresa
-            datos.put("idproducto, ",objects[0]);
+            datos.put("id_producto, ",objects[0]);
             datos.put("descripcion_producto", objects[1]);
             datos.put("nombre_producto",objects[2]);
             datos.put("precio_producto",objects[3]);
@@ -67,7 +66,7 @@ public class ControladorProducto {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("idproducto, ",objects[0]);
+            datos.put("id_producto, ",objects[0]);
             datos.put("descripcion_producto", objects[1]);
             datos.put("nombre_producto",objects[2]);
             datos.put("precio_producto",objects[3]);
@@ -92,7 +91,7 @@ public class ControladorProducto {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("idproducto, ",objects[0]);
+            datos.put("id_producto, ",objects[0]);
             datos.put("descripcion_producto", objects[1]);
             datos.put("nombre_producto",objects[2]);
             datos.put("precio_producto",objects[3]);
@@ -119,7 +118,7 @@ public class ControladorProducto {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("idproducto, ",objects[0]);
+            datos.put("id_producto, ",objects[0]);
             datos.put("descripcion_producto", objects[1]);
             datos.put("nombre_producto",objects[2]);
             datos.put("precio_producto",objects[3]);
@@ -157,9 +156,9 @@ public class ControladorProducto {
     }
 
     //Metodo para Eliminar
-    @DeleteMapping("/eliminarProducto/{idproducto}")
-    public String eliminarProducto(@PathVariable("idproducto")Integer idproducto){
-        return servicio.EliminarProducto(idproducto);
+    @DeleteMapping("/eliminarProducto/{id_producto}")
+    public String eliminarProducto(@PathVariable("id_producto")Integer id_producto){
+        return servicio.EliminarProducto(id_producto);
     }
 
     @DeleteMapping("/eliminarProductoNombre/{nombre_producto}")

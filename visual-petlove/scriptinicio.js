@@ -8,9 +8,16 @@ $(document).ready(function () {
       type: "GET",
       datatype: "JSON",
       success: function (respuesta) {
-        console.log(respuesta);
+
         if (respuesta.length != 0) {
           if (respuesta[0].contrasena_usuario == contrasena) {
+
+            let dato = {
+              email: respuesta[0].correo_usuario
+            };
+    
+            localStorage.setItem('dato', JSON.stringify(dato));
+
             if (correo.endsWith('@gmail.com')) {
               window.location.href = 'Cliente/clienteprincipal.html'; // Redireccionar a la página del cliente
             } else if (correo.endsWith('@professionalgrooming.com')) {
