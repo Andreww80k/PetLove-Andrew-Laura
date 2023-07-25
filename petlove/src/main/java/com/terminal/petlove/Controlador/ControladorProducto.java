@@ -44,7 +44,7 @@ public class ControladorProducto {
 
 
             //Segun el orden de la consulta se ingresa
-            datos.put("idproducto, ",objects[0]);
+            datos.put("idproducto",objects[0]);
             datos.put("descripcion_producto", objects[1]);
             datos.put("nombre_producto",objects[2]);
             datos.put("precio_producto",objects[3]);
@@ -67,7 +67,7 @@ public class ControladorProducto {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("idproducto, ",objects[0]);
+            datos.put("idproducto",objects[0]);
             datos.put("descripcion_producto", objects[1]);
             datos.put("nombre_producto",objects[2]);
             datos.put("precio_producto",objects[3]);
@@ -92,7 +92,7 @@ public class ControladorProducto {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("idproducto, ",objects[0]);
+            datos.put("idproducto",objects[0]);
             datos.put("descripcion_producto", objects[1]);
             datos.put("nombre_producto",objects[2]);
             datos.put("precio_producto",objects[3]);
@@ -119,7 +119,7 @@ public class ControladorProducto {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("idproducto, ",objects[0]);
+            datos.put("idproducto",objects[0]);
             datos.put("descripcion_producto", objects[1]);
             datos.put("nombre_producto",objects[2]);
             datos.put("precio_producto",objects[3]);
@@ -153,7 +153,6 @@ public class ControladorProducto {
     @PutMapping("/actualizarProducto")
     public String actualizarProducto(@RequestBody Producto Producto){
         return servicio.actualizarProducto(Producto);
-
     }
 
     //Metodo para Eliminar
