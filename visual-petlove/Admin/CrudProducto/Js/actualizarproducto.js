@@ -9,7 +9,7 @@ $(document).ready(function(){
     listarTabla();
     
     $('#actualizarProd').on('click', function(){
-        let idproducto = $('#idProducto').val();
+        let id_producto = $('#idProducto').val();
         let nombre_producto = $('#nombre').val();
         let descripcion_producto = $('#descripcion').val();
         let precio_producto = $('#precio').val();
@@ -17,14 +17,14 @@ $(document).ready(function(){
         
         validarNull();
 
-        if (idproducto !== '' && nombre_producto !== '' && descripcion_producto !== '' && precio_producto !== '' && stock_producto !== '') {
+        if (id_producto !== '' && nombre_producto !== '' && descripcion_producto !== '' && precio_producto !== '' && stock_producto !== '') {
             validacionNull.textContent = '';
             // Aquí puedes agregar más validaciones si es necesario
             // ...
 
             if (confirm("¿Estás seguro de actualizar este producto?")) {
                 let producto = {
-                    idproducto: idproducto,
+                    id_producto: id_producto,
                     nombre_producto: nombre_producto,
                     descripcion_producto: descripcion_producto,
                     precio_producto: precio_producto,
@@ -65,12 +65,12 @@ function listarTabla() {
         datatype : "JSON",
         success : function (respuesta){
             for (let i = 0; i < respuesta.length; i++) {
-                tablaProductos.innerHTML += '<tr><td>' + respuesta[i].idproducto +
+                tablaProductos.innerHTML += '<tr><td>' + respuesta[i].id_producto +
                     '</td><td>' + respuesta[i].nombre_producto +
                     '</td><td>' + respuesta[i].descripcion_producto + 
                     '</td><td>' + respuesta[i].precio_producto + 
                     '</td><td>' + respuesta[i].stock_producto + 
-                    '</td><td> <input type="button" class="btnListar butto" id="' + respuesta[i].idproducto + '" value="Actualizar">' + 
+                    '</td><td> <input type="button" class="btnListar butto" id="' + respuesta[i].id_producto + '" value="Actualizar">' + 
                     '</td></tr>';
             }
             listarProductoForm();
@@ -112,7 +112,7 @@ function listarProductoForm() {
                     // Asegúrate de que los nombres de las propiedades coinciden con los esperados.
                     // Si los nombres son diferentes, ajusta el código en consecuencia.
 
-                    $('#idProducto').val(producto.idproducto || '');
+                    $('#idProducto').val(producto.id_producto || '');
                     $('#nombre').val(producto.nombre_producto || '');
                     $('#descripcion').val(producto.descripcion_producto || '');
                     $('#precio').val(producto.precio_producto || '');

@@ -10,6 +10,7 @@
     <!-- Fuentes web de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -92,10 +93,7 @@
                         <input type="number" id="stock" required>
                         <label class="texto">Stock del producto</label>
                     </div>
-                    <div class="remember-forgot">
-                        <label><input type="checkbox" required>Aceptar terminos y condiciones</label>
-                    </div>
-                    <button class="button" type="submit">Agregar Producto</button>
+                    <button id="GuardaProducto" class="button" type="submit">Agregar Producto</button>
                 </form>
             </div>
         </div><br>
@@ -109,6 +107,7 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="Js/agregarproducto.js"></script>
     <script>
         function toggleMenu(id) {
             var submenu = document.getElementById(id);

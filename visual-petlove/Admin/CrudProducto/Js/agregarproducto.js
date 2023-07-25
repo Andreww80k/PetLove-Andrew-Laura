@@ -27,8 +27,8 @@ $(document).ready(function() {
             datatype: JSON,
             success: function(response) {
                 console.log(response);
-                console.log("Agregada la mascota");
-                alert("Agregada nueva mascota");
+                console.log("Agregada el producto");
+                alert("Agregada nuevo producto");
             }
         });
     });
