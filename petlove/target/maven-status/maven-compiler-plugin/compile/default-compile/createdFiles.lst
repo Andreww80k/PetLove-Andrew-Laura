@@ -31,12 +31,10 @@ com\terminal\petlove\ServletInitializer.class
 com\terminal\petlove\Repositorio\RepositorioProducto.class
 com\terminal\petlove\Servicio\ServicioCompraVenta.class
 com\terminal\petlove\Entidad\Mascota.class
-com\terminal\petlove\Controlador\ControladorProducto.class
 com\terminal\petlove\Entidad\Producto.class
 com\terminal\petlove\Controlador\ControladorMascota.class
 com\terminal\petlove\Controlador\ControladorProveedor.class
 com\terminal\petlove\Entidad\Reserva.class
-com\terminal\petlove\Servicio\ServicioProducto.class
 com\terminal\petlove\Servicio\ServicioUsuario.class
 com\terminal\petlove\Entidad\VentaCompra.class
 com\terminal\petlove\Controlador\ControladorDetalleVenta.class

@@ -61,6 +61,36 @@ public class ControladorCompraVenta {
         return json;
     }
 
+    @GetMapping("/ListarOrdenesCompra/{idusuario}")
+    public List<Map<String, Object>> listaOrdenesCompra(@PathVariable("idusuario") Integer idusuario){
+        List<Object[]> listaOrdenes = servicio.ListarOrdenesCompra(idusuario);
+        List<Map<String, Object>> json = new ArrayList<>();
+
+        for (Object[] objects : listaOrdenes) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            //Segun el orden la consulta se ingresa
+            datos.put("id_venta", objects[0]);
+            datos.put("estado_venta", objects[1]);
+            datos.put("fecha_venta", objects[2]);
+            datos.put("impuesto", objects[3]);
+            datos.put("total", objects[4]);
+            datos.put("id_usuario", objects[5]);
+            datos.put("nombre_usuario", objects[6]);
+            datos.put("apellido_usuario", objects[7]);
+            datos.put("correo_usuario", objects[8]);
+            datos.put("telefono_usuario", objects[9]);
+            datos.put("direccion_usuario", objects[10]);
+            datos.put("id_producto", objects[11]);
+            datos.put("descripcion_producto", objects[12]);
+            datos.put("nombre_producto", objects[13]);
+            datos.put("precio_producto", objects[14]);
+            json.add(datos);
+        }
+
+        return json;
+    }
+
 
 //Buscar
     @GetMapping("/BuscarCompraVenta/{dato}")
@@ -114,6 +144,9 @@ public class ControladorCompraVenta {
 
         return json;
     }
+
+
+
 
 
     //Agregar:
