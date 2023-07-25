@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Producto</title>
+    <title>Actualizar Producto</title>
     <link rel="shortcut icon" href="../img/pata.png">
-    <link rel="stylesheet" type="text/css" href="Css/Csslistarproducto.css">
+    <link rel="stylesheet" type="text/css" href="Css/Cssactualizarproducto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Fuentes web de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -70,20 +71,31 @@
     <div class="content">
         <div class="container">
             <div class="form-box login">
-                <h1>Listar Producto</h1>
-                <form id="loginForm" action="#">
+                <h1>Consulta de Productos</h1>
+                <form id="listarForm">
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="add-circle"></ion-icon></span>
-                        <input type="text" id="text" required>
-                        <label class="texto">Nombre del producto</label>
+                        <span class="icon"><ion-icon name="documents"></ion-icon></span>
+                        <input type="text" id="nombreProdBusq" placeholder="nombre">
+                        <label for="precio">Buscar por nombre</label>
                     </div>
-                    <div class="remember-forgot">
-                        <label><input type="checkbox" required>Aceptar terminos y condiciones</label>
-                    </div>
-                    <button class="button" type="submit">Listar Producto</button>
                 </form>
             </div>
-        </div><br>
+        </div>
+        <div class="table-container tabla">
+            <table id="tablaProductos" class="table table-striped table-bordered styled-table" style="border: 2px solid #ad6a2b;">
+                <thead><p class="text-center h1" style="color: #ad6a2b;">Listar Productos</p></thead>
+                <tr>
+                    <th class="table-header-custom">Id_Producto</th>
+                    <th class="table-header-custom">Nombre_Prod</th>
+                    <th class="table-header-custom">Descripcion_Prod</th>
+                    <th class="table-header-custom">Precio_Prod</th>
+                    <th class="table-header-custom">Stock_Prod</th>
+                </tr>
+                <tbody id="consultaproducto" class="tbody-custom" style="background-color: #faf3e8;">
+                
+                </tbody>
+            </table>
+        </div>
         <footer>
             <ul class="navbar_list" id="pie">2023 &copy; PetLoveWeb
                 <li class="list_item"><a href="https://es-la.facebook.com/"><img id="pie2" src="img/facebook.png" alt=""></a></li>
@@ -94,6 +106,7 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="Js/listarproducto.js"></script>
     <script>
         function toggleMenu(id) {
             var submenu = document.getElementById(id);

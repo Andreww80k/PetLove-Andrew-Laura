@@ -47,11 +47,18 @@ public class ServicioProducto {
     }
 
 
-    public String agregarProducto(Producto Producto){
-        if(repositorio.findById(Producto.getId_producto()).isPresent())
-            return "El Producto ya se encuentra registardo";
-        else repositorio.save(Producto);
-        return "El Producto se registro exitosamente";
+    public String agregarProducto(Producto producto) {
+        // Buscar el producto por nombre_producto en la base de datos
+        List<Producto> productosExistente = repositorio.buscarPorNombreProducto(producto.getNombre_producto());
+
+        if (productosExistente.isEmpty()) {
+            // El producto no existe en la base de datos, entonces lo guardamos
+            repositorio.save(producto);
+            return "Agregado exitosamente";
+        } else {
+            // El producto ya existe en la base de datos
+            return "Ya existe en la base de datos";
+        }
     }
 
     public String actualizarProducto(Producto productos){
@@ -74,7 +81,7 @@ public class ServicioProducto {
     public String eliminarProductoPorNombre(String nombre_producto) {
         List<Producto> productos = repositorio.buscarPorNombreProducto(nombre_producto);
 
-        if (productos.isEmpty()) {
+        if (!productos.isEmpty()) {
             repositorio.eliminarPorNombreProducto(nombre_producto);
             return "Se ha eliminado el producto por su nombre";
         } else {

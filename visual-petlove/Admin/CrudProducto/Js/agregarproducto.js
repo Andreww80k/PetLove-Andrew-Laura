@@ -19,7 +19,7 @@ $(document).ready(function() {
         let envioDatos = JSON.stringify(producto)
 
         $.ajax({
-            url: "http://localhost:8080/AgregarProducto", 
+            url: "http://localhost:8080/agregarProducto", 
             type: "POST",
             data: envioDatos,
             contentType: "application/JSON",
@@ -27,8 +27,14 @@ $(document).ready(function() {
             datatype: JSON,
             success: function(response) {
                 console.log(response);
-                console.log("Agregada el producto");
-                alert("Agregada nuevo producto");
+                if (response === "Agregado exitosamente") {
+                    console.log("Agregado el producto");
+                    alert("Agregado nuevo producto");
+                } else if (response === "Ya existe en la base de datos") {
+                    alert("El producto ya existe en la base de datos");
+                } else {
+                    alert("Problemas Técnicos")
+                }
             }
         });
     });
