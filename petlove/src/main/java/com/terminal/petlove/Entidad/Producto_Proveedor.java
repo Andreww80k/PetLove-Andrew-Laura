@@ -12,7 +12,7 @@ public class Producto_Proveedor {
     private Integer id_producto_proveedor;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idproducto", referencedColumnName = "idproducto", nullable = false)
+    @JoinColumn(name = "id_producto", referencedColumnName = "id_producto", nullable = false)
     @JsonIgnore
     private Producto producto;
 

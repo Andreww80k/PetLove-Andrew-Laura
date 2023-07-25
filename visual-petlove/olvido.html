@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imagenes/pata.png">
-    <link rel="stylesheet" href="CssInicio.css">
+    <link rel="shortcut icon" href="Imagenes/pata.png">
+    <link rel="stylesheet" href="Cssolvido.css">
     <!-- Fuentes web de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Inicio de sesión</title>
+    <script src="scriptRecuperarPass.js" defer></script>
+    <title>Olvido de contraseña</title>
+    <script src="https://smtpjs.com/v3/smtp.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,27 +31,18 @@
     </header>
     <div class="container">
         <div class="form-box">
-            <h1>Iniciar Sesión</h1>
+            <h1>Recuperar contraseña</h1>
             <form id="loginForm">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
                     <input type="email" id="email" required>
-                    <label class="texto">Correo</label>
+                    <label class="texto">Correo de usuario</label>
                 </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" id="password" required>
-                    <label class="texto">Contraseña</label>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox" required>Aceptar terminos y condiciones</label>
-                </div>
-                <button id="button" class="login">Iniciar Sesión</button>
+                <input type="button" id="button" value="Enviar Codigo" class="login"></input>
             </form>
-            <p>¿Olvidaste tu constraseña?<a href="olvido.html"> Recuperala</a></p>
-            <p>¿No tienes una cuenta? <a href="registro.html">Regístrate</a></p>
-            
+            <p>¿Te acuerdas de la clave? <a href="IniciodeSesion.html">Inicia Sesión</a></p>
         </div>
+
     </div>
     <footer>
         <ul class="navbar_list" id="pie">2023 &copy; PetLoveWeb
@@ -58,8 +51,8 @@
             <li class="list_item"><a href="https://es-la.facebook.com/"><img id="pie2" src="Imagenes/instagram.png" alt=""></a></li>
         </ul>
     </footer>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="scriptinicio.js"></script>
 </body>
 </html>
