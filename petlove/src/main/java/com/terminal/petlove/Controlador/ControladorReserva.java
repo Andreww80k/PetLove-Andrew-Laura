@@ -1,14 +1,15 @@
 package com.terminal.petlove.Controlador;
 
 
-import com.terminal.petlove.Entidad.Proveedor;
+import com.terminal.petlove.Entidad.Mascota;
 import com.terminal.petlove.Entidad.Reserva;
-import com.terminal.petlove.Entidad.Usuario;
 import com.terminal.petlove.Repositorio.RepositorioMascota;
 import com.terminal.petlove.Repositorio.RepositorioReserva;
 import com.terminal.petlove.Servicio.ServicioReserva;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -69,6 +70,10 @@ public class ControladorReserva {
             return json;
         }
 
+    @GetMapping("/ListarReservaPorFecha/{fecha_reserva}")
+    public ArrayList<Reserva> obtenerReservasPorFecha(@PathVariable("fecha_reserva") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha_reserva) {
+        return servicio.obtenerReservasPorFecha(fecha_reserva);
+    }
 
     //Buscar
 
@@ -156,6 +161,18 @@ public class ControladorReserva {
 
     //Agregar
 
+    @PostMapping("/AgregarReservas/{id_mascota}")
+    public String AgregaReservas(@RequestBody Reserva reservas, @PathVariable("id_mascota") Integer id_mascota) {
+        if (RepoMas.findById(id_mascota).isPresent()) {
+            Mascota mas = RepoMas.findById(id_mascota).get();
+            reservas.setMascota(mas);
+
+            // Utilizamos el nuevo método de agregado
+            return servicio.agregarReservaSiNoExiste(id_mascota,reservas);
+        } else {
+            return "Error al agregar Reserva";
+        }
+    }
 
     @PostMapping("/AgregarReserva/{id_mascota}")
     public String AgregaReserva(@RequestBody Reserva reservas,@PathVariable("id_mascota")Integer id_mascota){
@@ -184,5 +201,6 @@ public class ControladorReserva {
     public String eliminarReservaPorTipo(@PathVariable("tipo_reserva") String tipoReserva) {
         return servicio.eliminarReservaPorTipo(tipoReserva);
     }
+
 
 }

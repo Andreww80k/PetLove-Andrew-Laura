@@ -4,7 +4,9 @@ import org.hibernate.annotations.CreationTimestamp;
 
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -14,16 +16,15 @@ import java.util.Set;
 public class Reserva {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, length = 30)
     private Integer id_reserva;
 
     @Column(name = "fecha_reserva")
-    @CreationTimestamp
-    @Temporal(TemporalType.DATE)
-    private java.util.Date fecha_reserva;
-    @Column(name = "fecha_entrega")
-    @Temporal(TemporalType.DATE)
-    private Date fecha_desarrollo_reserva;
+    private LocalDate fecha_reserva;
+
+    @Column(name = "hora_desarrollo_reserva")
+    private LocalTime hora_desarrollo_reserva;
 
     @Column(nullable = false, length = 30)
     private String tipo_reserva;
@@ -44,10 +45,10 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(Integer id_reserva, Date fecha_reserva, Date fecha_desarrollo_reserva, String tipo_reserva, String estado_reserva, Mascota mascota, Set<ServicioReserva> servicio_reserva) {
+    public Reserva(Integer id_reserva, LocalDate fecha_reserva, LocalTime hora_desarrollo_reserva, String tipo_reserva, String estado_reserva, Mascota mascota, Set<ServicioReserva> servicio_reserva) {
         this.id_reserva = id_reserva;
         this.fecha_reserva = fecha_reserva;
-        this.fecha_desarrollo_reserva = fecha_desarrollo_reserva;
+        this.hora_desarrollo_reserva = hora_desarrollo_reserva;
         this.tipo_reserva = tipo_reserva;
         this.estado_reserva = estado_reserva;
         this.mascota = mascota;
@@ -62,20 +63,20 @@ public class Reserva {
         this.id_reserva = id_reserva;
     }
 
-    public Date getFecha_reserva() {
+    public LocalDate getFecha_reserva() {
         return fecha_reserva;
     }
 
-    public void setFecha_reserva(Date fecha_reserva) {
+    public void setFecha_reserva(LocalDate fecha_reserva) {
         this.fecha_reserva = fecha_reserva;
     }
 
-    public Date getFecha_desarrollo_reserva() {
-        return fecha_desarrollo_reserva;
+    public LocalTime getHora_desarrollo_reserva() {
+        return hora_desarrollo_reserva;
     }
 
-    public void setFecha_desarrollo_reserva(Date fecha_desarrollo_reserva) {
-        this.fecha_desarrollo_reserva = fecha_desarrollo_reserva;
+    public void setHora_desarrollo_reserva(LocalTime hora_desarrollo_reserva) {
+        this.hora_desarrollo_reserva = hora_desarrollo_reserva;
     }
 
     public String getTipo_reserva() {
@@ -115,7 +116,7 @@ public class Reserva {
         return "Reserva{" +
                 "id_reserva=" + id_reserva +
                 ", fecha_reserva=" + fecha_reserva +
-                ", fecha_desarrollo_reserva=" + fecha_desarrollo_reserva +
+                ", hora_desarrollo_reserva=" + hora_desarrollo_reserva +
                 ", tipo_reserva='" + tipo_reserva + '\'' +
                 ", estado_reserva='" + estado_reserva + '\'' +
                 ", mascota=" + mascota +

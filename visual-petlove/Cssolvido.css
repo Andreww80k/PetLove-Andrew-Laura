@@ -251,6 +251,7 @@ a:hover {
 }
 
 footer {
+    margin-top: 150px;
     height: 60px;
     background-color: #ad6a2b;
     color: white;

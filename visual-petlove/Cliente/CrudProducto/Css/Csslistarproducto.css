@@ -220,6 +220,24 @@ input {
     background-color: #ad6a2b;
 }
 
+.butto {
+    width: 50%;
+    height: 30px;
+    background: #ad6a2b;
+    border: 2.7px solid #000000;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 9px;
+}
+
+.butto:hover {
+    background-color: #ad6a2b;
+}
+
 p {
     text-align: center;
     margin-top: 20px;
@@ -325,13 +343,6 @@ a:hover {
     margin-bottom: 0px;
 }*/
 
-#pie2{
-    width: 50px;
-    height: 50px;
-    margin-top:-10px;
-    display: flex;
-}
-
 .wrapper {
     
     flex-direction: column;
@@ -357,4 +368,50 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.table-header-custom {
+    background-color: #ad6a2b;
+    color: white;
+    text-align: center;
+}
+
+.tbody-custom {
+    background-color: #000000;
+    text-align: center;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border-color: #ad6a2b;
+    text-align:center;
+    border: 1px solid #a3a3a3;
+}
+
+footer {
+    height: 60px;
+    background-color: #ad6a2b;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+#pie2{
+    width: 30px;
+    height: 30px;
+    margin-top:-5px;
+    display: flex;
+    color: white;
 }

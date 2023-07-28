@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface RepositorioReserva extends JpaRepository<Reserva, Integer> {
@@ -49,4 +50,8 @@ public interface RepositorioReserva extends JpaRepository<Reserva, Integer> {
     @Modifying
     @Query(value = "DELETE FROM Reserva WHERE tipo_reserva = :tipo_reserva", nativeQuery = true)
     void eliminarPorTipoReserva(String tipo_reserva);
+
+    @Query("SELECT r FROM Reserva r WHERE r.fecha_reserva = ?1")
+    ArrayList<Reserva> obtenerReservasPorFecha(LocalDate fecha_reserva);
+
 }

@@ -18,13 +18,11 @@ $(document).ready(function () {
     
             localStorage.setItem('dato', JSON.stringify(dato));
 
-            if (correo.endsWith('@gmail.com')) {
-              window.location.href = 'Cliente/clienteprincipal.html'; // Redireccionar a la página del cliente
-            } else if (correo.endsWith('@professionalgrooming.com')) {
-              window.location.href = 'Veterinario/veterinarioprincipal.html'; // Redireccionar a la página del veterinario
-            } else if (correo.endsWith('@petlove.com')) {
+            if (correo.endsWith('.professional.grooming@gmail.com')) {
               alert('Correo electrónico encontrado ¡Navegue feliz!');
               window.location.href = 'Admin/adminprincipal.html'; // Redireccionar a la página del administrador
+            } else {
+              window.location.href = 'Cliente/clienteprincipal.html'; // Redireccionar a la página del cliente
             }
           } else {
             // Si no coincide con ninguno, se puede mostrar un mensaje de error o tomar otra acción

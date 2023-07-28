@@ -6,6 +6,8 @@ import com.terminal.petlove.Repositorio.RepositorioMascota;
 import com.terminal.petlove.Repositorio.RepositorioReserva;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +37,9 @@ public class ServicioReserva {
         return repositorio.ListarReservas();
     }
 
-
+    public ArrayList<Reserva> obtenerReservasPorFecha(LocalDate fecha_reserva) {
+        return repositorio.obtenerReservasPorFecha(fecha_reserva);
+    }
 
     public List<Object[]>BuscarReservaInner(Integer dato) {
         return repositorio.ListarReservasInner(dato);
@@ -52,7 +56,41 @@ public class ServicioReserva {
         //Metodo para agregar foraneas:
 
 
-        public String AgregarReserva(Integer id_mascota, Reserva reservas){
+    public String agregarReservaSiNoExiste(Integer id_mascota, Reserva nuevaReserva) {
+        if (nuevaReserva.getFecha_reserva() == null || nuevaReserva.getHora_desarrollo_reserva() == null) {
+            return "Error: La fecha_reserva y la hora_desarrollo_reserva deben tener valores válidos";
+        }
+
+        LocalDate fechaReservaNueva = nuevaReserva.getFecha_reserva();
+        LocalTime horaReservaNueva = nuevaReserva.getHora_desarrollo_reserva();
+
+        // Comprobamos si ya existe una reserva con la misma fecha y hora
+        List<Reserva> reservasExistentes = repositorio.findAll();
+        for (Reserva reservaExistente : reservasExistentes) {
+            LocalDate fechaReservaExistente = reservaExistente.getFecha_reserva();
+            LocalTime horaReservaExistente = reservaExistente.getHora_desarrollo_reserva();
+
+            if (fechaReservaExistente.equals(fechaReservaNueva) && horaReservaExistente.equals(horaReservaNueva)) {
+                return "Ya existe una reserva con la misma fecha y hora";
+            }
+        }
+
+        // Si no existe, procedemos a agregar la reserva
+        // (Puedes implementar tu lógica de validación adicional aquí, si es necesario)
+        Optional<Mascota> optionalMascota = RepoMas.findById(id_mascota);
+        if (optionalMascota.isPresent()) {
+            Mascota mas = optionalMascota.get();
+            nuevaReserva.setMascota(mas);
+            repositorio.save(nuevaReserva);
+
+            return "Reserva agregada correctamente";
+        } else {
+            return "Error al agregar Reserva: No se encontró la mascota con ID " + id_mascota;
+        }
+    }
+
+
+    public String AgregarReserva(Integer id_mascota, Reserva reservas){
             if (RepoMas.findById(id_mascota).isPresent()) {
                 Mascota mas = RepoMas.findById(id_mascota).get();
                 reservas.setMascota(mas);
@@ -77,8 +115,8 @@ public class ServicioReserva {
             if (ReservaActualizada.getFecha_reserva() != null) {
                 ReservaExistente.setFecha_reserva(ReservaActualizada.getFecha_reserva());
             }
-            if (ReservaActualizada.getFecha_desarrollo_reserva() != null) {
-                ReservaExistente.setFecha_desarrollo_reserva(ReservaActualizada.getFecha_desarrollo_reserva());
+            if (ReservaActualizada.getHora_desarrollo_reserva() != null) {
+                ReservaExistente.setHora_desarrollo_reserva(ReservaActualizada.getHora_desarrollo_reserva());
             }
             if (ReservaActualizada.getTipo_reserva() != null) {
                 ReservaExistente.setTipo_reserva(ReservaActualizada.getTipo_reserva());
@@ -126,6 +164,5 @@ public class ServicioReserva {
             return "No se han encontrado reservas con ese tipo";
         }
     }
-
 
 }
