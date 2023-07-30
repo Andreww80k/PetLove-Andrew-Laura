@@ -11,7 +11,7 @@ import java.util.Set;
 public class Mascota {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, length = 30)
     private Integer id_mascota;
 

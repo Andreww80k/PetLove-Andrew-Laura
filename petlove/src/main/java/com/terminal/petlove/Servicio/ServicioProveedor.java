@@ -45,11 +45,18 @@ public class ServicioProveedor {
         else return null;
     }
 
-    public String agregarProveedor(Proveedor Proveedors){
-        if(repositorio.findById(Proveedors.getId_proveedor()).isPresent())
-            return "El Proveedor ya se encuentra registardo";
-        else repositorio.save(Proveedors);
-        return "El Proveedor se registro exitosamente";
+    public String agregarProveedor(Proveedor proveedor) {
+        if (proveedor.getId_proveedor() != null) {
+            // Si el ID_proveedor no es nulo, verificamos si ya existe en la base de datos.
+            if (repositorio.findById(proveedor.getId_proveedor()).isPresent()) {
+                return "El Proveedor ya se encuentra registrado";
+            }
+        }
+
+        // Si el ID_proveedor es nulo, el repositorio generará automáticamente un nuevo ID al guardar.
+        repositorio.save(proveedor);
+
+        return "El Proveedor se registró exitosamente";
     }
 
     public String actualizarProveedor(Proveedor Proveedors){
@@ -71,7 +78,7 @@ public class ServicioProveedor {
     public String eliminarProveedorPorCorreo(String correoProveedor) {
         List<Proveedor> proveedors = repositorio.buscarPorCorreoProveedor(correoProveedor);
 
-        if (proveedors.isEmpty()) {
+        if (!proveedors.isEmpty()) {
             repositorio.eliminarPorCorreoProveedor(correoProveedor);
             return "Se ha eliminado el proveedor por su correo";
         } else {

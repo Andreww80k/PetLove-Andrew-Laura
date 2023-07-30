@@ -10,6 +10,7 @@ import java.util.Set;
     public class Proveedor {
         @Id
         @Column(unique = true, length = 30)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id_proveedor;
 
         @Column(nullable = false, length = 50)
@@ -28,20 +29,20 @@ import java.util.Set;
         public String correo_proveedor;
 
         @Column(nullable = false, length = 50)
-        private String contraseña_proveedor;
+        private String contrasena_proveedor;
 
         @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
         @JsonIgnore
         private Set<Producto_Proveedor> producto_proveedor;
 
-        public Proveedor(Integer id_proveedor, String nombre_proveedor, String apellido_proveedor, String telefono_proveedor, String direccion_proveedor, String correo_proveedor, String contraseña_proveedor, Set<Producto_Proveedor> producto_proveedor) {
+        public Proveedor(Integer id_proveedor, String nombre_proveedor, String apellido_proveedor, String telefono_proveedor, String direccion_proveedor, String correo_proveedor, String contrasena_proveedor, Set<Producto_Proveedor> producto_proveedor) {
             this.id_proveedor = id_proveedor;
             this.nombre_proveedor = nombre_proveedor;
             this.apellido_proveedor = apellido_proveedor;
             this.telefono_proveedor = telefono_proveedor;
             this.direccion_proveedor = direccion_proveedor;
             this.correo_proveedor = correo_proveedor;
-            this.contraseña_proveedor = contraseña_proveedor;
+            this.contrasena_proveedor = contrasena_proveedor;
             this.producto_proveedor = producto_proveedor;
         }
 
@@ -96,12 +97,12 @@ import java.util.Set;
             this.correo_proveedor = correo_proveedor;
         }
 
-        public String getContraseña_proveedor() {
-            return contraseña_proveedor;
+        public String getcontrasena_proveedor() {
+            return contrasena_proveedor;
         }
 
-        public void setContraseña_proveedor(String contraseña_proveedor) {
-            this.contraseña_proveedor = contraseña_proveedor;
+        public void setcontrasena_proveedor(String contrasena_proveedor) {
+            this.contrasena_proveedor = contrasena_proveedor;
         }
 
         public Set<Producto_Proveedor> getProducto_proveedor() {
@@ -121,7 +122,7 @@ import java.util.Set;
                     ", telefono_proveedor='" + telefono_proveedor + '\'' +
                     ", direccion_proveedor='" + direccion_proveedor + '\'' +
                     ", correo_proveedor='" + correo_proveedor + '\'' +
-                    ", contraseña_proveedor='" + contraseña_proveedor + '\'' +
+                    ", contrasena_proveedor='" + contrasena_proveedor + '\'' +
                     ", producto_proveedor=" + producto_proveedor +
                     '}';
         }

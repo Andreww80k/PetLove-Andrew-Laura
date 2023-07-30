@@ -39,9 +39,9 @@ public class ControladorProveedor {
             //Segun el orden de la consulta se ingresa
 
 
-            datos.put("id_proveedor, ",objects[0]);
+            datos.put("id_proveedor",objects[0]);
             datos.put("apellido_proveedor", objects[1]);
-            datos.put("contraseña_proveedor",objects[2]);
+            datos.put("contrasena_proveedor",objects[2]);
             datos.put("correo_proveedor",objects[3]);
             datos.put("direccion_proveedor",objects[4]);
             datos.put("nombre_proveedor",objects[5]);
@@ -68,9 +68,9 @@ public class ControladorProveedor {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("id_proveedor, ",objects[0]);
+            datos.put("id_proveedor",objects[0]);
             datos.put("apellido_proveedor", objects[1]);
-            datos.put("contraseña_proveedor",objects[2]);
+            datos.put("contrasena_proveedor",objects[2]);
             datos.put("correo_proveedor",objects[3]);
             datos.put("direccion_proveedor",objects[4]);
             datos.put("nombre_proveedor",objects[5]);
@@ -95,9 +95,9 @@ public class ControladorProveedor {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("id_proveedor, ",objects[0]);
+            datos.put("id_proveedor",objects[0]);
             datos.put("apellido_proveedor", objects[1]);
-            datos.put("contraseña_proveedor",objects[2]);
+            datos.put("contrasena_proveedor",objects[2]);
             datos.put("correo_proveedor",objects[3]);
             datos.put("direccion_proveedor",objects[4]);
             datos.put("nombre_proveedor",objects[5]);
@@ -122,9 +122,9 @@ public class ControladorProveedor {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("id_proveedor, ",objects[0]);
+            datos.put("id_proveedor",objects[0]);
             datos.put("apellido_proveedor", objects[1]);
-            datos.put("contraseña_proveedor",objects[2]);
+            datos.put("contrasena_proveedor",objects[2]);
             datos.put("correo_proveedor",objects[3]);
             datos.put("direccion_proveedor",objects[4]);
             datos.put("nombre_proveedor",objects[5]);

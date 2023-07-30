@@ -9,6 +9,7 @@ import java.util.Set;
 public class RolUsuario {
     @Id
     @Column(unique = true, length = 30)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_rol_usuario;
 
     @Column(unique = true, length = 30)

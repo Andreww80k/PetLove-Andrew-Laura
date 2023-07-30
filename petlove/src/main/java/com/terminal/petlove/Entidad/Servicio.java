@@ -12,6 +12,7 @@ public class Servicio {
 
     @Id
     @Column(unique = true, length = 30)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_servicio;
 
     @Column(nullable = false, length = 30)

@@ -358,3 +358,50 @@ footer {
     text-align: center;
     padding: 10px;
 }
+
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.table-header-custom {
+    background-color: #ad6a2b;
+    color: white;
+    text-align: center;
+}
+
+.tbody-custom {
+    background-color: #000000;
+    text-align: center;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border-color: #ad6a2b;
+    text-align:center;
+    border: 1px solid #a3a3a3;
+}
+
+footer {
+    height: 60px;
+    background-color: #ad6a2b;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+#pie2{
+    width: 30px;
+    height: 30px;
+    margin-top:-5px;
+    display: flex;
+    color: white;
+}
