@@ -1,6 +1,7 @@
 package com.terminal.petlove.Servicio;
 
 import com.terminal.petlove.Entidad.Mascota;
+import com.terminal.petlove.Entidad.Producto;
 import com.terminal.petlove.Entidad.RolUsuario;
 import com.terminal.petlove.Repositorio.RepositorioRolUsuario;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,10 @@ public class ServicioRolUsuario {
         this.repoRUsu = repoRUsu;
     }
 
+
+    public List<Object[]>ListarRolInner(Integer id_rol_usuario){
+        return repoRUsu.ListarRolInner(id_rol_usuario);
+    }
 
     public ArrayList<RolUsuario> listarRol_Usuario(){
         return (ArrayList<RolUsuario>) repoRUsu.findAll();
@@ -56,18 +61,20 @@ public class ServicioRolUsuario {
     //Metodo para agregar:
 
 
+    public String agregarRol_Usuario(RolUsuario RolUsuario) {
+        // Buscar el rol por tipo_rol_usuario en la base de datos
+        List<RolUsuario> rolExistente = repoRUsu.buscarPorNombreRolUsuario(RolUsuario.getNombre_rol_usuario());
 
-    public String agregarRol_Usuario(RolUsuario Rol_Usuario) {
-        //Pregutan si existe:
-        if (repoRUsu.findById(Rol_Usuario.getId_rol_usuario()).isPresent())
+        if (rolExistente.isEmpty()) {
+            // El producto no existe en la base de datos, entonces lo guardamos
+            repoRUsu.save(RolUsuario);
+            return "El Rol_Usuario se registró satisfactoriamente";
+        } else {
+            // El producto ya existe en la base de datos
             return "El Rol_Usuario ya esta registrado en nuestra veterinaria, rectifica porfavor";
-
-
-        else{
-            repoRUsu.save(Rol_Usuario);
-            return "El Rol_Usuario se registro satisfactoriamente";
         }
     }
+
 
 
     //Metodo de actualizar:
@@ -101,7 +108,7 @@ public class ServicioRolUsuario {
     public String eliminarRolUsuarioPorNombre(String nombre_rol_usuario) {
         List<RolUsuario> rolUsuarios = repoRUsu.buscarPorNombreRolUsuario(nombre_rol_usuario);
 
-        if (rolUsuarios.isEmpty()) {
+        if (!rolUsuarios.isEmpty()) {
             repoRUsu.eliminarPorNombreRolUsuario(nombre_rol_usuario);
             return "Se ha eliminado el rol por su nombre";
         } else {

@@ -10,6 +10,7 @@
     <!-- Fuentes web de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -74,13 +75,10 @@
                 <form id="loginForm" action="#">
                     <div class="input-box">
                         <span class="icon"><ion-icon name="person"></ion-icon></span>
-                        <input type="text" id="text" required>
+                        <input type="text" id="nombre" required>
                         <label class="texto">Nombre</label>
                     </div>
-                    <div class="remember-forgot">
-                        <label><input type="checkbox" required>Aceptar terminos y condiciones</label>
-                    </div>
-                    <button class="button" type="submit">Agregar Rol</button>
+                    <button id="GuardaRol" class="button" type="submit">Agregar Rol</button>
                 </form>
             </div>
         </div><br>
@@ -94,6 +92,7 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="Js/agregarrol.js"></script>
     <script>
         function toggleMenu(id) {
             var submenu = document.getElementById(id);

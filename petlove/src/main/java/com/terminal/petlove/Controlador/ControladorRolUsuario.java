@@ -38,7 +38,7 @@ public class ControladorRolUsuario {
 
 
             //Segun el orden de la consulta se ingresa
-            datos.put("id_rol_usuario, ",objects[0]);
+            datos.put("id_rol_usuario",objects[0]);
             datos.put("nombre_rol_usuario", objects[1]);
             json.add(datos);
         }
@@ -59,7 +59,7 @@ public class ControladorRolUsuario {
 
             //Segun el orden de la consulta nuevamente:
 
-            datos.put("id_rol_usuario, ",objects[0]);
+            datos.put("id_rol_usuario",objects[0]);
             datos.put("nombre_rol_usuario", objects[1]);
             json.add(datos);
 
@@ -76,10 +76,26 @@ public class ControladorRolUsuario {
 
     //Crear el metodo de controlador para buscar Rol
 
-    @GetMapping("/buscarRolUsuario/{id}")
-    public RolUsuario buscarRolUsuario(@PathVariable("id") Integer id) {
-        return servicio.buscarRol_Usuario(id);
+    @GetMapping("/buscarRolUsuario/{dato}")
+    public List<Map<String,Object>>buscarRolUsuario(@PathVariable("dato")Integer dato){
+        List<Object[]>lista=servicio.ListarRolInner(dato);
+        List<Map<String,Object>> json=new ArrayList<>();
 
+        for (Object[]objects:lista){
+            Map<String,Object>datos=new LinkedHashMap<>();
+
+            //Segun el orden de la consulta nuevamente:
+
+            datos.put("id_rol_usuario",objects[0]);
+            datos.put("nombre_rol_usuario", objects[1]);
+            json.add(datos);
+
+        }
+
+        for (Map<String,Object>Rol:json){
+            System.out.println(Rol);
+        }
+        return json;
     }
 
 
