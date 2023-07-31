@@ -143,6 +143,16 @@ public class ServicioReserva {
         }
     }
 
+    public String EliminarReservas(Integer id_reserva){
+        List<Reserva> reservas = repositorio.buscarPorId(id_reserva);
+        if (!reservas.isEmpty()){
+            repositorio.eliminarPorIdReserva(id_reserva);
+            return "Se ha eliminado la reserva por completo";
+        } else {
+            return "No se registra ninguna reserva para eliminar";
+        }
+    }
+
     public String eliminarReservaPorEstado(String estado_reserva) {
         List<Reserva> reservas = repositorio.buscarPorEstadoReserva(estado_reserva);
 

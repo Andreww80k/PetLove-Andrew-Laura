@@ -192,6 +192,11 @@ public class ControladorReserva {
         return servicio.EliminarReserva(id_reserva);
     }
 
+    @DeleteMapping("/eliminarReservas/{id_reserva}")
+    public String eliminarReservas(@PathVariable("id_reserva")Integer id_reserva){
+        return servicio.EliminarReservas(id_reserva);
+    }
+
     @DeleteMapping("/eliminarReservaEstado/{estado_reserva}")
     public String eliminarReservaPorEstado(@PathVariable("estado_reserva") String estadoReserva) {
         return servicio.eliminarReservaPorEstado(estadoReserva);

@@ -28,6 +28,13 @@ public interface RepositorioReserva extends JpaRepository<Reserva, Integer> {
     @Query(value = "SELECT * FROM Reserva WHERE id_reserva =:dato",nativeQuery = true)
     List<Object[]>ListarReservasInner(Integer dato);
 
+    @Query(value = "SELECT * FROM Reserva WHERE id_reserva =:id_reserva",nativeQuery = true)
+    List<Reserva>buscarPorId(Integer id_reserva);
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM Reserva WHERE id_reserva = :id_reserva", nativeQuery = true)
+    void eliminarPorIdReserva(Integer id_reserva);
+
     @Query(value = "SELECT * FROM Reserva WHERE estado_reserva = :estado_reserva", nativeQuery = true)
     List<Object[]> buscarPorEstado(String estado_reserva);
 
