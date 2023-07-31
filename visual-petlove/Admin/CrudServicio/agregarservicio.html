@@ -10,6 +10,7 @@
     <!-- Fuentes web de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -70,17 +71,14 @@
     <div class="content">
         <div class="container">
             <div class="form-box login">
-                <h1>Registrar Un Servicio</h1>
+                <h1>Agregar Un Servicio</h1>
                 <form id="loginForm" action="#">
                     <div class="input-box">
                         <span class="icon"><ion-icon name="person"></ion-icon></span>
-                        <input type="text" id="text" required>
+                        <input type="text" id="tipo" required>
                         <label class="texto">Nombre del Servicio</label>
                     </div>
-                    <div class="remember-forgot">
-                        <label><input type="checkbox" required>Aceptar terminos y condiciones</label>
-                    </div>
-                    <button class="button" type="submit">Registra Nuevo Servicio</button>
+                    <button id="GuardaServicio" class="button" type="submit">Registra Nuevo Servicio</button>
                 </form>
             </div>
         </div><br>
@@ -94,6 +92,7 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="Js/agregarservicio.js"></script>
     <script>
         function toggleMenu(id) {
             var submenu = document.getElementById(id);

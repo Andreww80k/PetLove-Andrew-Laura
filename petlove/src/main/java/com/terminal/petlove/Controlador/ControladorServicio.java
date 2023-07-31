@@ -28,6 +28,27 @@ public class ControladorServicio {
         return servicio.listarServicio();
     }
 
+    @GetMapping("/ListarServicios")
+    public List<Map<String,Object>>datosServicio(){
+        List<Object[]>lista=servicio.DatosServicio();
+        List<Map<String,Object>>json=new ArrayList<>();
+
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            //Segun el orden la consulta se ingresa
+            datos.put("id_servicio", objects[0]);
+            datos.put("tipo_servicio", objects[1]);
+
+            json.add(datos);
+        }
+
+        for (Map<String, Object> Ser : json) {
+            System.out.println(Ser);
+        }
+        return json;
+    }
+
 
     //Crear el metodo de controlador para buscar Servicio
 
@@ -39,6 +60,30 @@ public class ControladorServicio {
     @GetMapping("/BuscarTipoServicio/{tipo_servicio}")
     public List<Map<String, Object>> datosServicioTipo(@PathVariable("tipo_servicio") String tipo_servicio) {
         List<Object[]> lista = servicio.BuscarServicioTipo(tipo_servicio);
+        List<Map<String, Object>> json = new ArrayList<>();
+
+        //For
+        for (Object[] objects : lista) {
+            Map<String, Object> datos = new LinkedHashMap<>();
+
+            //Segun el orden la consulta se ingresa
+            datos.put("id_servicio", objects[0]);
+            datos.put("tipo_servicio", objects[1]);
+
+            json.add(datos);
+        }
+
+        for (Map<String, Object> Ser : json) {
+            System.out.println(Ser);
+        }
+
+        return json;
+    }
+
+
+    @GetMapping("/BuscarServicios/{dato}")
+    public List<Map<String, Object>> buscarServicios(@PathVariable("dato") Integer dato) {
+        List<Object[]> lista = servicio.ListarServicioInner(dato);
         List<Map<String, Object>> json = new ArrayList<>();
 
         //For

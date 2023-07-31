@@ -14,6 +14,9 @@ import java.util.Optional;
 @Repository
 public interface RepositorioServicio extends JpaRepository<Servicio, Integer> {
 
+    @Query(value = "SELECT s.id_servicio, s.tipo_servicio FROM servicio AS s WHERE s.id_servicio=:dato",nativeQuery = true)
+    List<Object[]>ListarServicioInner(Integer dato);
+
     @Query(value = "SELECT * FROM Servicio WHERE tipo_servicio = :tipo_servicio", nativeQuery = true)
     List<Object[]> buscarPorTipo(String tipo_servicio);
 
@@ -23,4 +26,7 @@ public interface RepositorioServicio extends JpaRepository<Servicio, Integer> {
     @Modifying
     @Query(value = "DELETE FROM Servicio WHERE tipo_servicio = :tipo_servicio", nativeQuery = true)
     void eliminarPorTipoServicio(String tipo_servicio);
+
+    @Query(value = "SELECT ser.id_servicio, ser.tipo_servicio FROM servicio AS ser WHERE ser.tipo_servicio=ser.tipo_servicio", nativeQuery = true)
+    List<Object[]> ListarDatosServicio();
 }

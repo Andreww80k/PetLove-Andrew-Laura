@@ -19,11 +19,17 @@ public class ServicioServicio {
         this.repositorio = repositorio;
     }
 
+    public List<Object[]>ListarServicioInner(Integer id_servicio){
+        return repositorio.ListarServicioInner(id_servicio);
+    }
 
     public ArrayList<Servicio> listarServicio(){
         return (ArrayList<Servicio>) repositorio.findAll();
     }
 
+    public List<Object[]>DatosServicio(){
+        return repositorio.ListarDatosServicio();
+    }
 
     //Metodo de buscar Servicio por Jpa
 
@@ -45,14 +51,14 @@ public class ServicioServicio {
 
     public String agregarServicio(Servicio Servicio) {
         //Pregutan si existe:
-        if (repositorio.findById(Servicio.getId_servicio()).isPresent())
-            return "El Servicio ya esta registrado en nuestra veterinaria, rectifica porfavor";
-
-
-        else{
+        List<Servicio> serviciosExistente = repositorio.buscarPorTipoServicio(Servicio.getTipo_servicio());
+        if (serviciosExistente.isEmpty()) {
             repositorio.save(Servicio);
             return "El Servicio se registro satisfactoriamente";
+        } else{
+            return "El Servicio ya esta registrado en nuestra veterinaria, rectifica porfavor";
         }
+
     }
 
 
@@ -87,7 +93,7 @@ public class ServicioServicio {
     public String eliminarServicioPorTipo(String tipo_servicio) {
         List<Servicio> servicios = repositorio.buscarPorTipoServicio(tipo_servicio);
 
-        if (servicios.isEmpty()) {
+        if (!servicios.isEmpty()) {
             repositorio.eliminarPorTipoServicio(tipo_servicio);
             return "Se ha eliminado el servicio por su tipo";
         } else {
