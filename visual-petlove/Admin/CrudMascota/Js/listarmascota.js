@@ -1,26 +1,21 @@
-let tablaMascotas = document.querySelector('#consultamascota');
-tablaMascotas.innerHTML = '';
+let tablaMascota = document.querySelector('#consultamascota');
+tablaMascota.innerHTML = '';
 let nombreMascotaBusq = document.querySelector('#nombreMascotaBusq');
-let razaMascotaBusq = document.querySelector('#razaMascotaBusq');
-let tipoMascotaBusq = document.querySelector('#tipoMascotaBusq');
-nombreMascotaBusq.addEventListener('input', listarMascotas);
-razaMascotaBusq.addEventListener('input', listarMascotas);
-tipoMascotaBusq.addEventListener('input', listarMascotas);
-
+nombreMascotaBusq.addEventListener('input', listarMascota);
 
 $(document).ready(function(){
 
-    // METODO LISTAR    
+    // METODO LISTAR
 
     $.ajax({
-        url: "http://localhost:8080/ListarMascota", // Cambiar la URL por la que corresponda para obtener la lista de mascotas
+        url: "http://localhost:8080/ListarMascota",
         type: "GET",
         async: false,
         datatype: "JSON",
         success: function (respuesta) {
+            console.log(respuesta);
             for (let i = 0; i < respuesta.length; i++) {
-                tablaMascotas.innerHTML += '<tr><td>' + respuesta[i].id_mascota +
-                    '</td><td>' + respuesta[i].id_usuario +
+                tablaMascota.innerHTML += '<tr><td>' + respuesta[i].id_mascota +
                     '</td><td>' + respuesta[i].nombre_mascota +
                     '</td><td>' + respuesta[i].raza_mascota +
                     '</td><td>' + respuesta[i].tipo_mascota +
@@ -29,23 +24,17 @@ $(document).ready(function(){
                     '</td></tr>';
             }
         }
-    });  
+    });
+})
 
-});
-
-function listarMascotas() {
+function listarMascota() {
     let valNombreMascota = nombreMascotaBusq.value.toLowerCase();
-    let valRazaMascota = razaMascotaBusq.value.toLowerCase();
-    let valTipoMascota = tipoMascotaBusq.value.toLowerCase();
     
-    for (let i = 0; i < tablaMascotas.rows.length; i++) {
-        let fila = tablaMascotas.rows[i];
+    for (let i = 0; i < tablaMascota.rows.length; i++) {
+        let fila = tablaMascota.rows[i];
+        let nombreMas = fila.cells[1].textContent.toLowerCase();
 
-        let nombreMascota = fila.cells[2].textContent.toLowerCase();
-        let razaMascota = fila.cells[2].textContent.toLowerCase();
-        let tipoMascota = fila.cells[2].textContent.toLowerCase();
-
-        if (nombreMascota.includes(valNombreMascota) && razaMascota.includes(valRazaMascota) && tipoMascota.includes(valTipoMascota)) {
+        if (nombreMas.includes(valNombreMascota)) {
             fila.style.display = '';
         } else {
             fila.style.display = 'none';
